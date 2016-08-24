@@ -1,0 +1,34 @@
+{
+  "name": "smoelenboek-competa",
+  "version": "1.0.0",
+  "description": "smoelenboek van competa",
+  "main": "gruntfile.js",
+  "dependencies": {
+    "grunt": "^1.0.1"
+  },
+  "devDependencies": {
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-cssmin": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0"
+  },
+  "scripts": {
+    "test": "-"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swu1337/Smoelenboek-Competa.git"
+  },
+  "keywords": [
+    "smoelenboek",
+    "competa"
+  ],
+  "author": "Team Flying Tomatoes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/swu1337/Smoelenboek-Competa/issues"
+  },
+  "homepage": "https://github.com/swu1337/Smoelenboek-Competa#readme"
+}
