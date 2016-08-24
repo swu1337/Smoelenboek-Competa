@@ -6,7 +6,9 @@
     var mySkills = function() {
       window.alert("Hello");
     }
-    
+
+    var geert =  "Very noob";
+
 })();
 
 // JS challenge - Movie Slider

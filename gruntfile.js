@@ -45,7 +45,7 @@ module.exports = function(grunt) {
       }
     },
     jshint: {
-      files: ['gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
+      files: ['gruntfile.js', 'src/js/**/*.js'],
       options: {
         // options here to override JSHint defaults
         globals: {
@@ -60,6 +60,10 @@ module.exports = function(grunt) {
       sass: {
           files: "src/sass/**/*.scss",
           tasks: ['sass','cssmin']
+      },
+      js:{
+        files: ['<%= jshint.files %>'],
+        tasks: ['concat','uglify']
       }
       // files: ['<%= jshint.files %>'],
       // tasks: ['jshint']
