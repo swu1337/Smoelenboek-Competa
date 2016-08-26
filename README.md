@@ -2,10 +2,8 @@
 Smoelenboek voor Competa
 
 
-1.Clone
-2.npm install
-3.grunt serve (only watching sass and js tho).
+### 1. Clone the project (since we are using XAMPP/WAMP for php server and database,  clone in it C:/wampp/www or C:/xampp/htdocs)
+### 2. ```npm install``` to get all node_modules
+### 3. grunt serve.
 
-To do : JShint for js in grunt.
-        Watch for php files.
-        modular grunt. (seperate files)
+
