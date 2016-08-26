@@ -1,17 +1,17 @@
 module.exports = {
     options: {
-        livereload: true
-    },
-    php: {
-        files: ['wp-content/themes/competa/**/*.php'],
-        tasks: []
+        livereload: false
     },
     css: {
-        files: ['wp-content/themes/competa/assets/sass/**/*.sass'],
-        tasks: ['sass', 'cssmin']
+        files: ['src/sass/**/*.scs'],
+        tasks: ['sass','cssmin']
     },
     js: {
-        files: ['wp-content/themes/competa/assets/js/**/*.js'],
+        files: ['src/js/**/*.js'],
+        tasks: []
+    },
+    php: {
+        files: ['src/php/**/*.php'],
         tasks: []
     }
 };

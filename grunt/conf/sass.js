@@ -1,7 +1,10 @@
 module.exports = {
     dist: {
-        files: {
-            'wp-content/themes/competa/style.css': 'wp-content/themes/competa/assets/sass/**/*.sass'
-        }
+      options: {
+          style: 'expanded'
+      },
+      files: {
+          'build/css/style.css': 'src/sass/**/*.scss',
+      }
     }
 };

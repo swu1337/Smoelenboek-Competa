@@ -1,5 +1,79 @@
 (function() {
   "use strict";
+  function startSlider(callBackFunction) {
+      var xml = new XMLHttpRequest();
+      xml.onreadystatechange = function() {
+        if (xml.readyState === 4 && xml.status === 200) {
+          callBackFunction(xml);
+        }
+      };
+      var url = "http://test.competa.com/js-movies-test/data/movies-json.php";
+      xml.open('GET', url, true);
+      xml.send();
+    }
+
+    function makeList(movies) {
+      for (var i = 0; i < movies.length; i++) {
+        var element = document.createElement("li");
+        var figure = document.createElement("figure");
+        var img = document.createElement("img");
+        var figureCaption = document.createElement("figcaption");
+        var text = document.createTextNode(movies[i].title);
+
+        img.src = movies[i].img;
+        figureCaption.appendChild(text);
+        figure.appendChild(img);
+        figure.appendChild(figureCaption);
+        element.appendChild(figure);
+        document.getElementsByTagName("ul")[0].appendChild(element);
+      }
+    }
+
+    function isActionMovie(movie) {
+      return movie.genre === "Action";
+    }
+    
+    function isPositionRight(arrayPositions, item) {
+      return arrayPositions.indexOf(item) > -1;
+    }
+
+    function goLeft(imageWidth, max, liRightPosition) {
+      var position = window.getComputedStyle(document.querySelector("ul")).getPropertyValue("right");
+      var currentRight = parseInt(position.split("px")[0]);
+
+      if (isPositionRight(liRightPosition, currentRight)) {
+        if (currentRight > 0){
+          document.querySelector("ul").style.right = (currentRight - imageWidth) + "px";
+        }
+      }
+    }
+
+    function goRight(imageWidth, max, liRightPosition) {
+      var position = window.getComputedStyle(document.querySelector("ul")).getPropertyValue("right");
+      var currentRight = parseInt(position.split("px")[0]);
+
+      if (isPositionRight(liRightPosition, currentRight)) {
+        if (currentRight < (max - imageWidth)) {
+          document.querySelector("ul").style.right = (currentRight + imageWidth) + "px";
+        }
+      }
+    }
+
+    function move(e, imageWidth, maxWidth, arrayPos) {
+      switch(e.keyCode)
+      {
+        case 37 /*left*/:
+          goLeft(imageWidth, 0, arrayPos);
+          e.preventDefault();
+          break;
+
+        case 39 /*right*/:
+          goRight(imageWidth, maxWidth, arrayPos);
+          e.preventDefault();
+          break;
+        default: return false;
+      }
+    }
 
     startSlider(function(xml) {
 
@@ -30,81 +104,6 @@
       }
     });//closing tag for startSlider parameter;
 
-
-    function startSlider(callBackFunction) {
-        var xml = new XMLHttpRequest();
-        xml.onreadystatechange = function() {
-          if (xml.readyState == 4 && xml.status == 200) {
-            callBackFunction(xml);
-          }
-        };
-        var url = "http://test.competa.com/js-movies-test/data/movies-json.php";
-        xml.open('GET', url, true);
-        xml.send();
-      }
-
-      function makeList(movies) {
-        for (var i = 0; i < movies.length; i++) {
-          var element = document.createElement("li");
-          var figure = document.createElement("figure");
-          var img = document.createElement("img");
-          var figureCaption = document.createElement("figcaption");
-          var text = document.createTextNode(movies[i].title);
-
-          img.src = movies[i].img;
-          figureCaption.appendChild(text);
-          figure.appendChild(img);
-          figure.appendChild(figureCaption);
-          element.appendChild(figure);
-          document.getElementsByTagName("ul")[0].appendChild(element);
-        }
-      }
-
-      function isActionMovie(movie) {
-        return movie.genre == "Action";
-      }
-
-      function move(e, imageWidth, maxWidth, arrayPos) {
-        switch(e.keyCode)
-        {
-          case 37 /*left*/:
-            goLeft(imageWidth, 0, arrayPos);
-            e.preventDefault();
-            break;
-
-          case 39 /*right*/:
-            goRight(imageWidth, maxWidth, arrayPos);
-            e.preventDefault();
-            break;
-          default: return false;
-        }
-      }
-
-      function goLeft(imageWidth, max, liRightPosition) {
-        var position = window.getComputedStyle(document.querySelector("ul")).getPropertyValue("right");
-        var currentRight = parseInt(position.split("px")[0]);
-
-        if (isPositionRight(liRightPosition, currentRight)) {
-          if (currentRight > 0){
-            document.querySelector("ul").style.right = (currentRight - imageWidth) + "px";
-          }
-        }
-      }
-
-      function goRight(imageWidth, max, liRightPosition) {
-        var position = window.getComputedStyle(document.querySelector("ul")).getPropertyValue("right");
-        var currentRight = parseInt(position.split("px")[0]);
-
-        if (isPositionRight(liRightPosition, currentRight)) {
-          if (currentRight < (max - imageWidth)) {
-            document.querySelector("ul").style.right = (currentRight + imageWidth) + "px";
-          }
-        }
-      }
-
-      function isPositionRight(arrayPositions, item) {
-        return arrayPositions.indexOf(item) > -1;
-      }
 })();
 
 // JS challenge - Movie Slider

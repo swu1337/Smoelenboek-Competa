@@ -2,10 +2,10 @@ module.exports = {
     target: {
         files: [{
             expand: true,
-            cwd: 'wp-content/themes/competa/',
-            src: ['style.css'],
-            dest: 'wp-content/themes/competa/',
-            ext: '.css'
+            cwd: 'src/css/',
+            src: ['*.css', '!*.min.css'],
+            dest: 'build/css/',
+            ext: '.min.css'
         }]
     }
 };
