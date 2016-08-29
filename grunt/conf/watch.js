@@ -1,9 +1,9 @@
 module.exports = {
     options: {
-        livereload: false
+        livereload: true
     },
     css: {
-        files: ['src/sass/**/*.scs'],
+        files: ['src/sass/**/*.scss'],
         tasks: ['sass','cssmin']
     },
     js: {
