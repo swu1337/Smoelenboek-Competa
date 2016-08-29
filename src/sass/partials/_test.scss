@@ -1,6 +1,8 @@
 $color : #2951c7;
+$size : 100px;
 
 .myHeading{
   color: $color;
-  font-size: 30px;
+  font-size: $size;
+  font-weight: bold;
 }
