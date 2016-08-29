@@ -1,0 +1,16 @@
+.add-person{
+  width: 100%;
+  margin-top: 8px;
+}
+
+.photo{
+  &-folder{
+    width: 13%;
+    padding: 0;
+    margin-left: 25px;
+    min-height: 205px;
+  }
+  &-description{
+    text-align: center;
+  }
+}

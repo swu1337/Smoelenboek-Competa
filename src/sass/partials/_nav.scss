@@ -1,12 +1,27 @@
-.nav {
-  ul {
-  	margin: 0 0 0 0;
-  	padding: 0 0 0 0;
-    list-style: none;
-    li {
-      a {
-      	text-decoration: none;
-      }
+.navigation{
+  &-container{
+  }
+
+  &-list{
+    list-style-type: none;
+    float: right;
+  }
+
+  &-item{
+    padding: 8px 50px;
+    color: $black;
+    margin-right: -26px;
+    margin-bottom: 8px;
+    background-color: $light-grey;
+    border-radius: 8px;
+    &:hover{
+      background-color: $competa-red;
+      cursor: pointer;
+      color: $white;
+    }
+
+    #-link{
+
     }
   }
 }

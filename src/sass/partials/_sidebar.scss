@@ -1,3 +1,39 @@
 .sidebar {
+  background-color: $dark-blue;
+  height: 100vh;
+}
 
+.competa_logo{
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20%;
+  width: 68%;
+  height: auto;
+}
+
+.logout_button{
+  position: absolute;
+  background-color: $dark-blue;
+  width: 38px;
+  height: 38px;
+  bottom: 2%;
+  left: 0.8%;
+}
+
+.welcome_message{
+  color:$white;
+  font-size: 0.8em;
+}
+
+.logout-img{
+  background-image: url('../../src/img/home/logout-button.png');
+  background-size: 88px 38px;
+  background-repeat: no-repeat;
+  background-position: -1px;
+  width: 38px;
+  height: 38px;
+
+  &:hover{
+    background-position: -49px;
+  }
 }
