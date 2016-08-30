@@ -19,6 +19,14 @@
                         Back-office
                         <a class="navigation-item-link"></a>
                     </li>
+                    <li class="navigation-item">
+                        Add
+                        <a class="navigation-item-link"></a>
+                    </li>
+                    <li class="navigation-item">
+                        Delete
+                        <a class="navigation-item-link"></a>
+                    </li>
                 </ul>
             </nav>
             <button class="logout_button">
