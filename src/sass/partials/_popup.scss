@@ -19,16 +19,16 @@
     padding: 10px 20px 10px 20px;
     border: solid #1e333e 2px;
     text-decoration: none;
-}
-
-.confirm_delete:hover {
-  background: $green;
-  background-image: -webkit-linear-gradient(top, $green, $green);
-  background-image: -moz-linear-gradient(top, $green, $green);
-  background-image: -ms-linear-gradient(top, $green, $green);
-  background-image: -o-linear-gradient(top, $green, $green);
-  background-image: linear-gradient(to bottom, $green, $green);
-  text-decoration: none;
+    
+  &:hover {
+    background: $green;
+    background-image: -webkit-linear-gradient(top, $green, $green);
+    background-image: -moz-linear-gradient(top, $green, $green);
+    background-image: -ms-linear-gradient(top, $green, $green);
+    background-image: -o-linear-gradient(top, $green, $green);
+    background-image: linear-gradient(to bottom, $green, $green);
+    text-decoration: none;
+  }
 }
 
 .decline_delete{
@@ -40,14 +40,14 @@
   padding: 10px 20px 10px 20px;
   border: solid #1e333e 2px;
   text-decoration: none;
-}
-
-.decline_delete:hover {
-  background: $competa-red;
-  background-image: -webkit-linear-gradient(top, $competa-red, $competa-red);
-  background-image: -moz-linear-gradient(top, $competa-red, $competa-red);
-  background-image: -ms-linear-gradient(top, $competa-red, $competa-red);
-  background-image: -o-linear-gradient(top, $competa-red, $competa-red);
-  background-image: linear-gradient(to bottom, $competa-red, $competa-red);
-  text-decoration: none;
+    
+  &:hover {
+    background: $competa-red;
+    background-image: -webkit-linear-gradient(top, $competa-red, $competa-red);
+    background-image: -moz-linear-gradient(top, $competa-red, $competa-red);
+    background-image: -ms-linear-gradient(top, $competa-red, $competa-red);
+    background-image: -o-linear-gradient(top, $competa-red, $competa-red);
+    background-image: linear-gradient(to bottom, $competa-red, $competa-red);
+    text-decoration: none;
+  }
 }
