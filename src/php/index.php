@@ -7,7 +7,7 @@
   </head>
   <body>
     <div>
-      <h1 class="myHeading">Hello</h1>
+      <p class="welcome_text">Hello</p>
     </div>
     <script type="text/javascript" src="../../build/js/app.min.js"></script>
   </body>

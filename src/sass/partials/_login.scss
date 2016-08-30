@@ -1,0 +1,30 @@
+.login_background{
+	background-image:url('../../src/img/home/backgroundpicture.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.welcome_text{
+	color:$white;
+	font-size: 0.8em;
+	text-align: center;
+	font-weight: bold;
+}
+
+.logo{
+	display: block;
+	margin: 48px auto;
+	width: 230px;
+	height: auto;
+}
+
+.sign_in{
+	display: block;
+	margin: 0 auto;
+	width: auto;
+	height: auto;
+	cursor: pointer;
+
+}
