@@ -9,7 +9,7 @@
 <body class="login_background">
 <div>
 	<img class="logo" src="../../img/home/logo.png"/>
-	<p class="welcome_text">Welcome at Competa Smoelenboek. Press the button below to sign in with your personal account.</p>
+	<p class="welcome_text">Welcome to Competa Smoelenboek. Click the button below to sign in with your Google account.</p>
 	<img class="sign_in" src="../../img/home/google_sign_in.png"/>
 </div>
 </body>
