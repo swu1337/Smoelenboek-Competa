@@ -19,6 +19,8 @@
                         Back-office
                         <a class="navigation-item-link"></a>
                     </li>
+                    
+                    <!--Add if statement for admin-->
                     <li class="navigation-item">
                         Add
                         <a class="navigation-item-link"></a>
@@ -27,6 +29,7 @@
                         Delete
                         <a class="navigation-item-link"></a>
                     </li>
+                    <!--                          -->
                 </ul>
             </nav>
             <button class="logout_button">
