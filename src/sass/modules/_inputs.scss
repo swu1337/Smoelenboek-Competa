@@ -1,0 +1,17 @@
+.form-input {
+  width: 80%;
+  margin: .5em 0;
+  border: 1px solid $border-grey;
+  color: $dark-grey;
+  padding-left: 1.1em;
+  padding-top: 0.6em;
+  padding-bottom: 0.6em;
+}
+
+.select{
+  color: $placeholde-grey;
+
+  &-option {
+    color: $dark-grey;
+  }
+}
