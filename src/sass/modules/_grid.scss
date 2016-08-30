@@ -7,7 +7,7 @@
 }
 .col {
   float: left;
-  padding: 1.5rem 1.2rem 1.5rem 1.5rem;
+  padding: $col-padding-y $col-padding-x $col-padding-y $col-padding-y;
   text-align: left;
   overflow: hidden;
   @include transition(ease-in-out right, .5s);
@@ -66,4 +66,3 @@
     }
   }
 }
-
