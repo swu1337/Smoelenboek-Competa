@@ -10,11 +10,13 @@
         <div class="col content">
 
             <!--Add a if statement to activate the div-->
-            <div class="delete_popup">
-                <p>Are you sure that you want to delete (name)?</p>
-                <button class="confirm_delete">Yes</button>
+            
+        <!--<div class="delete_popup">
+                <span class="close">×</span>
+                    <p>Are you sure that you want to delete (name)?</p>
+                 <button class="confirm_delete">Yes</button>
                 <button class="decline_delete">No</button>
-            </div>
+            </div>-->
 
             <figure class="col photo-folder">
                 <img class ="add-person" src="../../../src/img/home/add-person.png"/>
