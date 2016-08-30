@@ -1,0 +1,53 @@
+.delete_popup{
+  position: fixed;
+  left: 45%;
+  background-color: $white;
+  margin: 0 auto;
+  padding: 10px;
+  border: 2px solid $dark-blue;
+  width: 38%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  text-align: center;
+}
+
+.confirm_delete{
+    margin-right: 30px;
+    margin-bottom: 10px;
+    background: #dedede;
+    color: black;
+    font-size: 1.1em;
+    padding: 10px 20px 10px 20px;
+    border: solid #1e333e 2px;
+    text-decoration: none;
+    
+  &:hover {
+    background: $green;
+    background-image: -webkit-linear-gradient(top, $green, $green);
+    background-image: -moz-linear-gradient(top, $green, $green);
+    background-image: -ms-linear-gradient(top, $green, $green);
+    background-image: -o-linear-gradient(top, $green, $green);
+    background-image: linear-gradient(to bottom, $green, $green);
+    text-decoration: none;
+  }
+}
+
+.decline_delete{
+  margin-left: 30px;
+  margin-bottom: 10px;
+  background: #dedede;
+  color: black;
+  font-size: 1.1em;
+  padding: 10px 20px 10px 20px;
+  border: solid #1e333e 2px;
+  text-decoration: none;
+    
+  &:hover {
+    background: $competa-red;
+    background-image: -webkit-linear-gradient(top, $competa-red, $competa-red);
+    background-image: -moz-linear-gradient(top, $competa-red, $competa-red);
+    background-image: -ms-linear-gradient(top, $competa-red, $competa-red);
+    background-image: -o-linear-gradient(top, $competa-red, $competa-red);
+    background-image: linear-gradient(to bottom, $competa-red, $competa-red);
+    text-decoration: none;
+  }
+}
