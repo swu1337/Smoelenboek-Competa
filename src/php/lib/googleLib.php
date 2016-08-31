@@ -59,18 +59,4 @@ if ( $client->getAccessToken() ) {
 		session_unset();
 	}
 }
-
 ?>
-
-<!--TODO: Put in correct pages /-->
-<div class="box">
-	<div class="request">
-		<?php
-		if (isset($auth_url)) {
-			echo "<a class='login' href='" . $auth_url . "'>Login</a>";
-		} else {
-			echo "<a class='logout' href='?logout'>Logout</a>";
-		}
-		?>
- 	</div>
-</div>

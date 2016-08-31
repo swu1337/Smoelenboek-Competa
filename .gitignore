@@ -1,6 +1,9 @@
 ### Example user template template
 ### Example user template
 
+# Self Constants
+src/php/constants.php
+
 # IntelliJ project files
 .idea/
 *.iml
