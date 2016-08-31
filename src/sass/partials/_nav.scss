@@ -5,27 +5,7 @@
     float: right;
   }
 
-  &-item-green {
-    padding: 8px 50px;
-    color: $black;
-    margin: {
-      right: -26px;
-      bottom: 8px;
-    }
-
-    background-color: $light-grey;
-    border-radius: 8px;
-
-    &:hover {
-      background-color: $green;
-      cursor: pointer;
-      color: $white;
-    }
-  }
-
   &-item {
-    padding: 8px 50px;
-    color: $black;
     margin: {
       right: -26px;
       bottom: 8px;
@@ -38,6 +18,21 @@
       background-color: $competa-red;
       cursor: pointer;
       color: $white;
+    }
+
+    &-link {
+      display: block;
+      color: $black;
+      text-decoration: none;
+      padding: 8px 50px;
+    }
+
+    &-green {
+      @extend .navigation-item;
+
+      &:hover {
+        background-color: $green;
+      }
     }
   }
 }

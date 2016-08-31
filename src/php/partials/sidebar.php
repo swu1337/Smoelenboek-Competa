@@ -4,29 +4,23 @@
             <nav class="navigation-container">
                 <ul class="navigation-list">
                     <li class="navigation-item">
-                        Interns
-                        <a class="navigation-item-link"></a>
+                        <a class="navigation-item-link">Interns</a>
                     </li>
                     <li class="navigation-item">
-                        Employees
-                        <a class="navigation-item-link"></a>
+                        <a class="navigation-item-link">Employees</a>
                     </li>
                     <li class="navigation-item">
-                        Trainees
-                        <a class="navigation-item-link"></a>
+                        <a class="navigation-item-link">Trainees</a>
                     </li>
                     <li class="navigation-item">
-                        Back-office
-                        <a class="navigation-item-link"></a>
+                        <a class="navigation-item-link">Back-office</a>
                     </li>
                     <!--Add if statement for admin-->
                     <li class="navigation-item-green">
-                        Add
-                        <a class="navigation-item-link"></a>
+                        <a href="?p=add" class="navigation-item-link">Add</a>
                     </li>
                     <li class="navigation-item">
-                        Delete
-                        <a class="navigation-item-link"></a>
+                        <a href="?p=delete" class="navigation-item-link">Delete</a>
                     </li>
                 </ul>
             </nav>
