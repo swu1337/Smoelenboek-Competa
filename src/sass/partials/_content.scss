@@ -1,8 +1,11 @@
 .content {
   width: 73%;
   background-color: $white;
-  margin-top: 2%;
-  margin-left: 2%;
+  margin: {
+    top: 2%;
+    left: 2%;
+  }
+
   font-size: 0.8em;
   float: right;
 }

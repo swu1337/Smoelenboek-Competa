@@ -1,7 +1,7 @@
 ### Example user template template
 ### Example user template
 
-# Self Constants
+# PHP Constants for Google API Login
 src/php/constants.php
 
 # IntelliJ project files
@@ -14,7 +14,7 @@ logs
 *.log
 npm-debug.log*
 
-#VSCode project files
+# VSCode project files
 .vscode/
 
 # Runtime data

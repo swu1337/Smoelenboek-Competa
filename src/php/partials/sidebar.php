@@ -16,7 +16,7 @@
                         <a class="navigation-item-link"></a>
                     </li>
                     <li class="navigation-item">
-                        <p>Back-office</p>
+                        Back-office
                         <a class="navigation-item-link"></a>
                     </li>
                     <!--Add if statement for admin-->
@@ -40,4 +40,3 @@
                     ?>
                 </div>
         </div>
-

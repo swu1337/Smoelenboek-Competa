@@ -3,9 +3,11 @@
   margin: .5em 0;
   border: 1px solid $border-grey;
   color: $dark-grey;
-  padding-left: 1.1em;
-  padding-top: 0.6em;
-  padding-bottom: 0.6em;
+  padding: {
+    left: 1.1em;
+    top: 0.6em;
+    bottom: 0.6em;
+  }
 }
 
 .select{

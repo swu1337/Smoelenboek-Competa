@@ -16,15 +16,18 @@
 }
 
 .confirm_delete{
-    margin-right: 30px;
-    margin-bottom: 10px;
-    background: #dedede;
-    color: black;
+    margin:{
+      right: 30px;
+      bottom: 10px;
+    }
+
+    background-color:$light-grey;
+    color: $black;
     font-size: 1.1em;
     padding: 10px 20px 10px 20px;
     border: solid #1e333e 2px;
     text-decoration: none;
-    
+
   &:hover {
     background: $green;
     background-image: -webkit-linear-gradient(top, $green, $green);
@@ -37,15 +40,18 @@
 }
 
 .decline_delete{
-  margin-left: 30px;
-  margin-bottom: 10px;
-  background: #dedede;
+  margin:{
+    left: 30px;
+    bottom: 10px;
+  }
+
+  background-color: $light-grey;
   color: black;
   font-size: 1.1em;
   padding: 10px 20px 10px 20px;
   border: solid #1e333e 2px;
   text-decoration: none;
-    
+
   &:hover {
     background: $competa-red;
     background-image: -webkit-linear-gradient(top, $competa-red, $competa-red);

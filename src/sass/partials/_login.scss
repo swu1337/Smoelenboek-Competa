@@ -1,26 +1,29 @@
-.login_background{
-	background-image:url('../../src/img/home/backgroundpicture.png');
-	background-size: cover;
-	background-repeat: no-repeat;
+.login_background {
+	background: {
+		image:url('../../src/img/home/backgroundpicture.png');
+		size: cover;
+		repeat: no-repeat;
+	}
+
 	height: 100vh;
 	overflow: hidden;
 }
 
-.welcome_text{
+.welcome_text {
 	color:$white;
 	font-size: 1em;
 	text-align: center;
 	padding-bottom: 18px;
 }
 
-.logo{
+.logo {
 	display: block;
 	margin: 150px auto 48px auto;
 	width: 230px;
 	height: auto;
 }
 
-.sign_in{
+.sign_in {
 	display: block;
 	margin: 0 auto;
 	width: auto;

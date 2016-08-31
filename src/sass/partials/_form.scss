@@ -1,22 +1,31 @@
 form .form {
   &-heading {
     color: $dark-grey;
-    text-transform: capitalize;
+    text: {
+      transform: capitalize;
+    }
+
     font-size: 2.2em;
   }
 
   &-label {
-    font-size: 1.1em;
-    font-weight: bold;
+    font: {
+      size: 1.1em;
+      weight: bold;
+    }
+
     color: $white;
-    background-color: $button-blue;
+    background: {
+      color: $button-blue;
+    }
+
     display: inline-block;
     padding: 7px 28px;
     cursor: pointer;
-    margin: 0.8em 0;
+    margin: .8em 0;
 
       &:hover {
-          background-color: red;
+        background-color: red;
       }
   }
 
@@ -34,11 +43,15 @@ form .form {
     padding: 8px 54px;
 
     &:hover {
-      background-color: $green;
+      background: {
+        color: $green;
+      }
     }
   }
 }
 
 .add-form{
-  padding-top: 10px;
+  padding: {
+    top: 10px;
+  }
 }
