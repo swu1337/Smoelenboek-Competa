@@ -1,5 +1,5 @@
         <div class="col col_quarter sidebar" >
-            <img class="competa_logo" src="img/home/logo.png"/>
+            <img class="competa_logo" src="img/home/competa_logo.svg"/>
             <p class="welcome_message">Welcome, name</p>
             <nav class="navigation-container">
                 <ul class="navigation-list">
@@ -16,7 +16,7 @@
                         <a class="navigation-item-link"></a>
                     </li>
                     <li class="navigation-item">
-                        Back-office
+                        <p>Back-office</p>
                         <a class="navigation-item-link"></a>
                     </li>
                     <!--Add if statement for admin-->

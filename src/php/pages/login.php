@@ -8,7 +8,7 @@
 </head>
 <body class="login_background">
 <div>
-	<img class="logo" src="img/home/logo.png" />
+	<img class="logo" src="img/home/competa_logo.svg" />
 	<p class="welcome_text">Welcome to Competa Smoelenboek. Click the button below to sign in with your Google account.</p>
 		<div class="request">
 			<?php
