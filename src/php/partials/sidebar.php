@@ -12,9 +12,6 @@
                     <li class="navigation-item">
                         <a class="navigation-item-link">Trainees</a>
                     </li>
-                    <li class="navigation-item">
-                        <a class="navigation-item-link">Back-office</a>
-                    </li>
                     <!--Add if statement for admin-->
                     <li class="navigation-item-green">
                         <a href="?p=add" class="navigation-item-link">Add</a>

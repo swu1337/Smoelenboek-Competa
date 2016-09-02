@@ -11,7 +11,17 @@
   width: 68%;
   height: auto;
 }
-
+@media screen and (max-width: 770px) {
+  .sidebar {
+    position: initial;
+  }
+  .competa_logo {
+    display: block;
+    margin: 0 auto;
+    width: 40%;
+    height: auto;
+  }
+}
 .logout_button {
   position: absolute;
   background-color: $dark-blue;
