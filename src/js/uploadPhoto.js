@@ -10,7 +10,7 @@
           photoName = e.target.value.split( '\\' ).pop();
 
           if (photoName.length > 17) {
-            photoName = photoName.substring(0,17) + "...";
+            photoName = photoName.substring(0, 14) + "...";
           }
         }
 
