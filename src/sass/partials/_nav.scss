@@ -25,6 +25,10 @@
       color: $black;
       text-decoration: none;
       padding: 8px 50px;
+      
+      &:hover {
+          color: #fff;
+      }
     }
 
     &-green {
