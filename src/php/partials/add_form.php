@@ -9,7 +9,6 @@
             <option class="select-option" value="">Interns</option>
             <option class="select-option" value="">Employees</option>
             <option class="select-option" value="">Trainees</option>
-            <option class="select-option" value="">Back-office</option>
         </select>
         <select class="form-input select"  name="user_right" required>
             <option class="select-option" value="" disabled selected>Select user right</option>
