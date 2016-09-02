@@ -4,6 +4,13 @@
         <input class="form-input" type="text" name="user_firstname" placeholder="First name*" required />
         <input class="form-input" type="text" name="user_insertion" placeholder="Insertion" />
         <input class="form-input" type="text" name="user_lastname" placeholder="Last name*" required />
+        <select class="form-input select"  name="jobs" required>
+            <option class="select-option" value="" disabled selected>Select user job</option>
+            <option class="select-option" value="">Interns</option>
+            <option class="select-option" value="">Employees</option>
+            <option class="select-option" value="">Trainees</option>
+            <option class="select-option" value="">Back-office</option>
+        </select>
         <select class="form-input select"  name="user_right" required>
             <option class="select-option" value="" disabled selected>Select user right</option>
             <option class="select-option" value="">A</option>
