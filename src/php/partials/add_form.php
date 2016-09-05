@@ -12,7 +12,7 @@
                 <td><input id="user_firstname" class="form-input" type="text" name="user_firstname" placeholder="John*" required /></td>
             </tr>
             <tr>
-                <td><label for="user_insertion">Middle Name:</label></td>
+                <td><label for="user_insertion">Insertion:</label></td>
             </tr>
             <tr>
                 <td><input id="user_insertion" class="form-input" type="text" placeholder="van" name="user_insertion" /></td>

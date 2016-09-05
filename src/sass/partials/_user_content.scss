@@ -10,8 +10,27 @@
     margin-left: 25px;
     min-height: 205px;
   }
-
-  &-description {
-    text-align: center;
+      &-description {
+        text-align: center;
+      }
+    }
+@media screen and (max-width: 950px) {
+  .photo {
+    &-folder {
+      width: 18%;
+      padding: 0;
+      margin-left: 25px;
+      min-height: 210px;
+    }
+  }
+}
+@media screen and (max-width: 620px) {
+  .photo {
+    &-folder {
+      width: 26%;
+      padding: 0;
+      margin-left: 25px;
+      min-height: 210px;
+    }
   }
 }
