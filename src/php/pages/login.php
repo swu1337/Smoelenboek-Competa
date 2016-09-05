@@ -2,9 +2,10 @@
 	<div class="login-box">
 		<img class="logo" src="img/home/competa_logo.svg" />
 		<p class="welcome_text">Welcome to Competa Smoelenboek. Click the button below to sign in with your Google account.</p>
+		
+		<a href="<?= $auth_url; ?>">
 		<div class="google-btn">
 			<div class="google-icon-wrapper">
-				<!-<a href="' . $auth_url .'">
 				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 48 48" class="google-icon">
 					<g>
 						<path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
@@ -16,6 +17,7 @@
 				</svg>
 			</div>
 			<p class="btn-text">Sign in with Google</p>
-		</div>			
+		</div>
+		</a>
 	</div>
 </div>
