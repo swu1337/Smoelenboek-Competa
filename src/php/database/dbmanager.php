@@ -34,8 +34,8 @@ Class DBManager {
 		`google_sub` VARCHAR(50) NOT NULL,
 		`permissions` INT NULL,
 		`firstname` VARCHAR(45) NOT NULL,
+		`lastname_prefix` VARCHAR(20) NULL,
 		`lastname` VARCHAR(45) NOT NULL,
-		`type` INT NOT NULL,
 		`photo_path` VARCHAR(260) NULL,
 		`description` TEXT NULL,
 		PRIMARY KEY (`id`),
@@ -78,6 +78,11 @@ Class DBManager {
 			FOREIGN KEY (`employee_id`)
 			REFERENCES `' . $this->dbname  . '`.`' . $this->table_employee_types . '` (`id`)
 		)');
+	}
+	function add_user($role_id, $email, $google_sub, $firstname, $lastname, $description, $lastname_prefix = null){
+		$query = $this->conn->prepare("INSERT INTO ". $this->table_users.
+			"(role_id, email, google_sub, firstname, lastname_prefix, lastname, description) VALUES (?, ?, ?, ?, ?, ?, ?)");
+		$query->execute(array($role_id, $email, $google_sub, $firstname, $lastname_prefix, $lastname, $description));
 	}
 }
 
