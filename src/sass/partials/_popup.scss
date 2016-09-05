@@ -17,7 +17,6 @@
 
 .confirm_delete{
     margin:{
-      right: 30px;
       bottom: 10px;
     }
 
@@ -40,15 +39,19 @@
 }
 
 .decline_delete{
+  @media screen and (max-width: 664px){
+      margin-left: 0;
+    }
+
   margin:{
-    left: 30px;
     bottom: 10px;
+    left: 10%;
   }
 
   background-color: $light-grey;
   color: black;
   font-size: 1.1em;
-  padding: 10px 20px 10px 20px;
+  padding: 10px 22px 10px 22px;
   border: solid #1e333e 2px;
   text-decoration: none;
 
