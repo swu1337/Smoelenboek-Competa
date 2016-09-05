@@ -9,3 +9,17 @@
   font-size: 0.8em;
   float: right;
 }
+
+@media screen and (max-width: 770px) {
+  .content {
+    width: 100%;
+    background-color: $white;
+    margin: {
+      top: 2%;
+      left: 2%;
+    }
+
+    font-size: 0.8em;
+    float: left;
+  }
+}
