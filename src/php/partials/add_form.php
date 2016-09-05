@@ -51,8 +51,19 @@
             </tr>
           </table>
             <input class="form-submit btn" type="submit" value="Add" />
-            <input class="form-file" id="user_photo" type="file" name="user_photo" required />
-            <label class="form-label" for="user_photo">Choose a file ...</label>
+            <div class="form-upload">
+                <input class="form-file" id="user_photo" type="file" name="user_photo" required />
+                <label class="form-label" for="user_photo">Choose a file ...</label>
+            </div>
+
     </form>
-    <?php print_r($_POST)?>
+    <div class="col col_half add-form">
+        <div class="photo-viewer">
+            <h1 class="photo-viewer-heading">Preview</h1>
+            <div class="photo-viewer-container">
+                <div class="photo-viewer-image">
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
