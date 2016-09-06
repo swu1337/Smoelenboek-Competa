@@ -30,6 +30,23 @@ Class DBManager {
 	function create_database() {
 		$this->conn->query('CREATE SCHEMA IF NOT EXISTS `' . $this->db_name  . '` DEFAULT CHARACTER SET utf8 ;');
 
+		$this->conn->query('CREATE TABLE IF NOT EXISTS `' . $this->db_name  . '`.`' . $this->table_user_roles . '` (
+		`id` INT NOT NULL AUTO_INCREMENT,
+		`name` VARCHAR(45) NOT NULL,
+		`permissions` INT NOT NULL,
+		PRIMARY KEY (`id`),
+		UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+		UNIQUE INDEX `name_UNIQUE` (`name` ASC)
+		)');
+
+		$this->conn->query('CREATE TABLE IF NOT EXISTS `' . $this->db_name  . '`.`' . $this->table_employee_types . '` (
+		`id` INT NOT NULL AUTO_INCREMENT,
+		`name` VARCHAR(45) NOT NULL,
+		PRIMARY KEY (`id`),
+		UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+		UNIQUE INDEX `name_UNIQUE` (`name` ASC)
+		)');
+
 		$this->conn->query('CREATE TABLE IF NOT EXISTS `' . $this->db_name  . '`.`' . $this->table_users . '` (
 		`id` INT NOT NULL AUTO_INCREMENT,
 		`role_id` INT NOT NULL,
@@ -48,23 +65,6 @@ Class DBManager {
 		CONSTRAINT `role`
 			FOREIGN KEY (`role_id`)
 			REFERENCES `' . $this->db_name  . '`.`' . $this->table_user_roles . '` (`id`)
-		)');
-
-		$this->conn->query('CREATE TABLE IF NOT EXISTS `' . $this->db_name  . '`.`' . $this->table_user_roles . '` (
-		`id` INT NOT NULL AUTO_INCREMENT,
-		`name` VARCHAR(45) NOT NULL,
-		`permissions` INT NOT NULL,
-		PRIMARY KEY (`id`),
-		UNIQUE INDEX `id_UNIQUE` (`id` ASC),
-		UNIQUE INDEX `name_UNIQUE` (`name` ASC)
-		)');
-
-		$this->conn->query('CREATE TABLE IF NOT EXISTS `' . $this->db_name  . '`.`' . $this->table_employee_types . '` (
-		`id` INT NOT NULL AUTO_INCREMENT,
-		`name` VARCHAR(45) NOT NULL,
-		PRIMARY KEY (`id`),
-		UNIQUE INDEX `id_UNIQUE` (`id` ASC),
-		UNIQUE INDEX `name_UNIQUE` (`name` ASC)
 		)');
 
 		$this->conn->query('CREATE TABLE IF NOT EXISTS `' . $this->db_name  . '`.`' . $this->table_user_types . '` (
