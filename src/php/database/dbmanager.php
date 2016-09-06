@@ -83,9 +83,9 @@ Class DBManager {
 
 		$this->conn->select_db($this->db_name);
 	}
-	
+
 	function add_user($role_id, $email, $google_sub, $firstname, $lastname_prefix, $lastname, $description) {
-		$query = $this->conn->prepare('INSERT INTO `' . $this->table_users . 
+		$query = $this->conn->prepare('INSERT INTO `' . $this->table_users .
 			'` (`role_id`, `email`, `google_sub`, `firstname`, `lastname_prefix`, `lastname`, `description`) VALUES (?, ?, ?, ?, ?, ?, ?)');
 		$query->bind_param('issssss', $role_id, $email, $google_sub, $firstname, $lastname_prefix, $lastname, $description);
 		$query->execute();
