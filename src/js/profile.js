@@ -14,7 +14,9 @@ function manipulateElem (element) {
         if(popup.hasClass('hidden') ) {
             showPopup();
             var currentUserdata = $(this).data().currentuser;
-            $('.popup-alginment__name .inject').html(currentUserdata.firstname + " " + currentUserdata.lastname_prefix + " " + currentUserdata.lastname);
+            $('.popup-alginment__name .inject').html(" "+ currentUserdata.fullname);
+            $('.popup-alginment__email .inject').html(" "+ currentUserdata.email);
+            $('.popup-alginment__description .inject').html(" "+ currentUserdata.description);
             closePopup();
         }
     });

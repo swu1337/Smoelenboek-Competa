@@ -15,9 +15,15 @@
     ?>
     <div class="popup">
         <span class="close"></span>
-        <span class="popup-alginment popup-alginment__name">Name:<span class="inject"></span></span>
-        <span class="popup-alginment popup-alginment__email" >Email:<span class="inject"></span></span>
-        <span class="popup-alginment popup-alginment__description" >Description:<span class="inject"></span></span>
+        <div class="popup-left">
+            <span class="popup-alginment popup-alginment__name">Name:<span class="inject"></span></span>
+            <span class="popup-alginment popup-alginment__email" >Email:<span class="inject"></span></span>
+            <span class="popup-alginment popup-alginment__description" >Description:<span class="inject"></span></span>
+            <span class="popup-alginment popup-alginment__type" >Type:<span class="inject"></span></span>
+        </div>
+        <div class="popup-right">
+            <div class="popup-userphoto"></div>
+        </div>
     </div>
 
 </div>

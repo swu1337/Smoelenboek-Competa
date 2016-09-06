@@ -2,15 +2,38 @@
   position: fixed;
   left: 44%;
   background-color: $white;
-  margin: 3% auto 0 auto;
   padding: 10px;
   border: 2px solid $dark-blue;
   width: 38%;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  text-align: center;
+
+  &-userphoto{
+    width: 168px;
+    height: 168px;
+    background-color: green;
+  }
 
   &.hidden{
     display: none;
+  }
+
+  &-alginment{
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  &-left{
+    width: 60%;
+    float: left;
+    @media screen and (max-width: 664px){
+      margin-left: 0;
+    }
+  }
+
+  &-right{
+    width: 40%;
+    float: left;
+    padding: 0 28px 5px 0;
   }
 }
 

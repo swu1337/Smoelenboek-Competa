@@ -105,7 +105,7 @@ Class User implements JsonSerializable{
 		$array['lastname'] = $this->lastname;
 		$array['photo_path'] = $this->photo_path;
 		$array['description'] = $this->description;
-
+		$array['fullname'] = $this->get_fullname();
 		return $array;
 	}
 }
