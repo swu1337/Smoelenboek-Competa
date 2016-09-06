@@ -1,4 +1,27 @@
 <?php
+    $user_array = array(
+        "role_id" => filter_input(INPUT_POST, 'role_id', FILTER_VALIDATE_INT),
+        "email" => filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL),
+        "google_sub" => filter_input(INPUT_POST, 'google_sub', FILTER_DEFAULT),
+        "firstname" => filter_input(INPUT_POST, 'firstname', FILTER_DEFAULT),
+        "lastname_prefix" => filter_input(INPUT_POST, 'lastname_prefix', FILTER_DEFAULT),
+        "lastname" => filter_input(INPUT_POST, 'lastname', FILTER_DEFAULT),
+        "description" => filter_input(INPUT_POST, 'description', FILTER_DEFAULT)
+    );
+
+    $iter = new CachingIterator(new ArrayIterator($user_array), CachingIterator::FULL_CACHE);
+
+    foreach($iter as $key => $value) {
+        if($value != null || ($key == "lastname_prefix" || $key == "description" || $key == "google_sub")){
+            if(!$iter-> hasNext()) {
+                $db->add_user($iter["role_id"], $iter["email"], $iter["google_sub"],
+                    $iter["firstname"], $iter["lastname_prefix"], $iter["lastname"], $iter["description"]);
+            }
+        }
+        else{
+            break;
+        }
+    }
 ?>
 
 <div class="col content">
@@ -9,23 +32,36 @@
                 <td><label for="user_firstname">First Name:</label></td>
             </tr>
             <tr>
-                <td><input id="user_firstname" class="form-input" type="text" name="user_firstname" placeholder="John*" required /></td>
+                <td><input id="user_firstname" class="form-input" type="text" name="firstname" placeholder="John*" required /></td>
             </tr>
             <tr>
                 <td><label for="user_insertion">Insertion:</label></td>
             </tr>
             <tr>
-                <td><input id="user_insertion" class="form-input" type="text" placeholder="van" name="user_insertion" /></td>
+                <td><input id="user_insertion" class="form-input" type="text" placeholder="van" name="lastname_prefix" /></td>
             </tr>
             <tr>
                 <td><label for="user_last_name">Last Name:</label></td>
             </tr>
             <tr>
-                <td><input id="user_last_name" class="form-input" type="text" placeholder="Doe*" name="user_lastname" required /></td>
+                <td><input id="user_last_name" class="form-input" type="text" placeholder="Doe*" name="lastname" required /></td>
+            </tr>
+            <tr>
+                <td><label for="user_description">Description:</label></td>
+            </tr>
+            <tr>
+                <td><input id="user_description" class="form-input" type="text" placeholder="Very kind person." name="description"/></td>
+            </tr>
+            <tr>
+                <td><label for="user_email">E-Mail:</label></td>
+            </tr>
+            <tr>
+                <td><input id="user_email" class="form-input" type="text" placeholder="Example@gmail.com" name="email"/></td>
             </tr>
             <tr>
                 <td><label for="user_job">User Job Description:</label></td>
             </tr>
+
             <tr>
                 <td>
                     <select id="user_job" class="form-input select"  name="user_job" required>
@@ -41,11 +77,11 @@
             </tr>
             <tr>
                 <td>
-                    <select id="user_right" class="form-input select"  name="user_right" required>
+                    <select id="user_right" class="form-input select"  name="role_id" required>
                         <option class="select-option" value="" disabled selected>Select user right</option>
-                        <option class="select-option" value="">Admin</option>
-                        <option class="select-option" value="">Employee</option>
-                        <option class="select-option" value="">User</option>
+                        <option class="select-option" value="1">Admin</option>
+                        <option class="select-option" value="2">Employee</option>
+                        <option class="select-option" value="3">User</option>
                     </select>
                 </td>
             </tr>

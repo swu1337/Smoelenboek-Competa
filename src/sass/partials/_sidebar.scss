@@ -30,8 +30,10 @@
 
 .logout-button-wrapper {
 	position: absolute;
-	width: 60px;
-	height: 60px;
+	min-width: 45px;
+	min-height: 45px;
+	width: 8vh;
+	height: 8vh;
 	bottom: 0;
 	left: 0;
 	margin: 10px;
@@ -39,7 +41,7 @@
 	padding: 12px;
 	background-color: #0F191F;
 	@include transition(ease, .2s);
-	@include box-shadow(0, 0, $pure-black, 6px, 0, inset);
+	@include box-shadow(0, 0, $pure-black, 6px, 0, inset);	
 
 	.logout-vector {
 		fill: #8ca0ba;
@@ -58,8 +60,3 @@
 		@include box-shadow(0, 0, $pure-black, 20px, 0, inset);
 	}
 }
-
-
-
-
-
