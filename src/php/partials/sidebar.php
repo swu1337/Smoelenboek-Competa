@@ -7,7 +7,7 @@
                 <a class="navigation-item-link">Interns</a>
             </li>
             <li class="navigation-item">
-                <a class="navigation-item-link">Employees</a>
+                <a href="?p=" class="navigation-item-link">Employees</a>
             </li>
             <li class="navigation-item">
                 <a class="navigation-item-link">Trainees</a>
@@ -15,9 +15,6 @@
             <!--Add if statement for admin-->
             <li class="navigation-item-green">
                 <a href="?p=add" class="navigation-item-link">Add</a>
-            </li>
-            <li class="navigation-item">
-                <a href="?p=delete" class="navigation-item-link">Delete</a>
             </li>
         </ul>
     </nav>
