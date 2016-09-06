@@ -82,12 +82,6 @@ Class DBManager {
 		)');
 
 		$this->conn->select_db($this->db_name);
-
-		$this->conn->query('INSERT INTO ' . $this->table_user_roles . ' (name, permissions) VALUES `Admin`, `255`');
-		$this->conn->query('INSERT INTO ' . $this->table_user_roles . ' (name, permissions) VALUES `Employee`, `255`');
-		$this->conn->query('INSERT INTO ' . $this->table_user_roles . ' (name, permissions) VALUES `User`, `255`');
-
-
 	}
 	
 	function add_user($role_id, $email, $google_sub, $firstname, $lastname_prefix, $lastname, $description) {
