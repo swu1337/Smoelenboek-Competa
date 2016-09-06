@@ -20,6 +20,7 @@ require_once('php/database/dbmanager.php');
 $db = new DBManager();
 
 include_once('php/page_manager.php');
+$users = $db->get_users();
 
 ?>
 

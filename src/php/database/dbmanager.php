@@ -1,6 +1,7 @@
 <?php
 require_once('php/constants.php');
 require_once(MYSQL_CONNECT);
+require_once('table-managers/User.php');
 
 Class DBManager {
 	private $dbname;
@@ -12,7 +13,7 @@ Class DBManager {
 	private $conn;
 
 	public function __construct() {
-		mysqli_report(MYSQLI_REPORT_ALL);
+		//mysqli_report(MYSQLI_REPORT_ALL);
 
 		$this->db_name 					= 'smoelenboek';
 		$this->table_users 				= 'users';
@@ -84,11 +85,25 @@ Class DBManager {
 		$this->conn->select_db($this->db_name);
 	}
 	
+	/**Add Functions**/
 	function add_user($role_id, $email, $google_sub, $firstname, $lastname_prefix, $lastname, $description) {
 		$query = $this->conn->prepare('INSERT INTO `' . $this->table_users . 
 			'` (`role_id`, `email`, `google_sub`, `firstname`, `lastname_prefix`, `lastname`, `description`) VALUES (?, ?, ?, ?, ?, ?, ?)');
 		$query->bind_param('issssss', $role_id, $email, $google_sub, $firstname, $lastname_prefix, $lastname, $description);
 		$query->execute();
+	}
+
+	/**Get Functions**/
+	public function get_users() {	
+		$result = $this->conn->query( 'SELECT * FROM '. $this->table_users);
+		$users = array();
+
+		while ( $row = $result->fetch_assoc() ) {
+			array_push($users, new User( $row['id'], $row['role_id'], $row['email'], $row['google_sub'], 
+					$row['firstname'], $row['lastname_prefix'], $row['lastname'], $row['photo_path'], $row['description']) );
+		}
+
+		return $users;
 	}
 }
 
