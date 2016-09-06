@@ -25,8 +25,7 @@ if (isset($_REQUEST['logout']) ) {
 if ( isset($_GET['code']) ) {
 	$client->authenticate($_GET['code']);
 	$_SESSION['access_token'] = $client->getAccessToken();
-	$redirect_uri = REDIRECT_URI;
-	header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
+	header('Location: ' . filter_var(REDIRECT_URI, FILTER_SANITIZE_URL));
 }
 
 /**
@@ -39,9 +38,6 @@ if ( isset($_SESSION['access_token']) && $_SESSION['access_token']) {
 	$client->setAccessToken($_SESSION['access_token']);
 } else {
 	require_once('util.php');
-	if( !endsWith($_SERVER["SCRIPT_FILENAME"], "index.php") ) {
-		header('Location: ' . filter_var(REDIRECT_URI, FILTER_SANITIZE_URL));
-	}
 	$auth_url = $client->createAuthUrl();
 }
 

@@ -1,19 +1,19 @@
 <?php
     $user_array = array(
-    "role_id" => filter_input(INPUT_POST, 'role_id', FILTER_VALIDATE_INT),
-    "email" => filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL),
-    "google_sub" => filter_input(INPUT_POST, 'google_sub', FILTER_DEFAULT),
-    "firstname" => filter_input(INPUT_POST, 'firstname', FILTER_DEFAULT),
-    "lastname_prefix" => filter_input(INPUT_POST, 'lastname_prefix', FILTER_DEFAULT),
-    "lastname" => filter_input(INPUT_POST, 'lastname', FILTER_DEFAULT),
-    "description" => filter_input(INPUT_POST, 'description', FILTER_DEFAULT)
+        "role_id" => filter_input(INPUT_POST, 'role_id', FILTER_VALIDATE_INT),
+        "email" => filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL),
+        "google_sub" => filter_input(INPUT_POST, 'google_sub', FILTER_DEFAULT),
+        "firstname" => filter_input(INPUT_POST, 'firstname', FILTER_DEFAULT),
+        "lastname_prefix" => filter_input(INPUT_POST, 'lastname_prefix', FILTER_DEFAULT),
+        "lastname" => filter_input(INPUT_POST, 'lastname', FILTER_DEFAULT),
+        "description" => filter_input(INPUT_POST, 'description', FILTER_DEFAULT)
     );
 
-    $iter = new CachingIterator(new ArrayIterator($user_array),CachingIterator::FULL_CACHE);
+    $iter = new CachingIterator(new ArrayIterator($user_array), CachingIterator::FULL_CACHE);
 
-    foreach($iter as $key => $value){
-        if($value != null || $key = "lastname_prefix" || $key = "description"){
-            if(!$iter-> hasNext()){
+    foreach($iter as $key => $value) {
+        if($value != null || ($key == "lastname_prefix" || $key == "description" || $key == "google_sub")){
+            if(!$iter-> hasNext()) {
                 $db->add_user($iter["role_id"], $iter["email"], $iter["google_sub"],
                     $iter["firstname"], $iter["lastname_prefix"], $iter["lastname"], $iter["description"]);
             }
@@ -51,6 +51,12 @@
             </tr>
             <tr>
                 <td><input id="user_description" class="form-input" type="text" placeholder="Very kind person." name="description"/></td>
+            </tr>
+            <tr>
+                <td><label for="user_email">E-Mail:</label></td>
+            </tr>
+            <tr>
+                <td><input id="user_email" class="form-input" type="text" placeholder="Example@gmail.com" name="email"/></td>
             </tr>
             <tr>
                 <td><label for="user_job">User Job Description:</label></td>

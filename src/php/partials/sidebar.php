@@ -21,18 +21,10 @@
             </li>
         </ul>
     </nav>
-    <?php
-    // if (isset($auth_url)) {
-    //     echo "<a class='login' href='" . $auth_url . "'>Login</a>";
-    // } else {
-    //     echo '<a href="?logout"><button class="logout_button"><div class="logout-img"></div></button></a>';
-    // }
-    ?>
     <a href="?logout">
         <div class="logout-button-wrapper">
             <!-- SVG Vector -->
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
-                viewBox="229 -228.1 475.1 475.1">
+            <svg version="1.1" class="logout-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" viewBox="229 -228.1 475.1 475.1">
                 <g>
                     <g class="logout-vector">
                         <path d="M466.5,27.7c9.9,0,18.5-3.6,25.7-10.8c7.2-7.2,10.9-15.8,10.9-25.7v-182.7c0-9.9-3.6-18.5-10.9-25.7

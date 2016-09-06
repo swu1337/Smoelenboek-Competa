@@ -12,7 +12,9 @@ Class DBManager {
 	private $conn;
 
 	public function __construct() {
-		$this->dbname 					= 'smoelenboek';
+		mysqli_report(MYSQLI_REPORT_ALL);
+
+		$this->db_name 					= 'smoelenboek';
 		$this->table_users 				= 'users';
 		$this->table_user_roles 		= 'user_roles';
 		$this->table_user_types 		= 'user_types';
@@ -25,13 +27,13 @@ Class DBManager {
 	}
 
 	function create_database() {
-		$this->conn->query('CREATE SCHEMA IF NOT EXISTS `' . $this->dbname  . '` DEFAULT CHARACTER SET utf8 ;');
+		$this->conn->query('CREATE SCHEMA IF NOT EXISTS `' . $this->db_name  . '` DEFAULT CHARACTER SET utf8 ;');
 
-		$this->conn->query('CREATE TABLE IF NOT EXISTS `' . $this->dbname  . '`.`' . $this->table_users . '` (
+		$this->conn->query('CREATE TABLE IF NOT EXISTS `' . $this->db_name  . '`.`' . $this->table_users . '` (
 		`id` INT NOT NULL AUTO_INCREMENT,
 		`role_id` INT NOT NULL,
 		`email` VARCHAR(50) NOT NULL,
-		`google_sub` VARCHAR(50) NOT NULL,
+		`google_sub` VARCHAR(50) NULL,
 		`permissions` INT NULL,
 		`firstname` VARCHAR(45) NOT NULL,
 		`lastname_prefix` VARCHAR(20) NULL,
@@ -44,10 +46,10 @@ Class DBManager {
 		INDEX `role_idx` (`role_id` ASC),
 		CONSTRAINT `role`
 			FOREIGN KEY (`role_id`)
-			REFERENCES `' . $this->dbname  . '`.`' . $this->table_user_roles . '` (`id`)
+			REFERENCES `' . $this->db_name  . '`.`' . $this->table_user_roles . '` (`id`)
 		)');
 
-		$this->conn->query('CREATE TABLE IF NOT EXISTS `' . $this->dbname  . '`.`' . $this->table_user_roles . '` (
+		$this->conn->query('CREATE TABLE IF NOT EXISTS `' . $this->db_name  . '`.`' . $this->table_user_roles . '` (
 		`id` INT NOT NULL AUTO_INCREMENT,
 		`name` VARCHAR(45) NOT NULL,
 		`permissions` INT NOT NULL,
@@ -56,7 +58,7 @@ Class DBManager {
 		UNIQUE INDEX `name_UNIQUE` (`name` ASC)
 		)');
 
-		$this->conn->query('CREATE TABLE IF NOT EXISTS `' . $this->dbname  . '`.`' . $this->table_employee_types . '` (
+		$this->conn->query('CREATE TABLE IF NOT EXISTS `' . $this->db_name  . '`.`' . $this->table_employee_types . '` (
 		`id` INT NOT NULL AUTO_INCREMENT,
 		`name` VARCHAR(45) NOT NULL,
 		PRIMARY KEY (`id`),
@@ -64,7 +66,7 @@ Class DBManager {
 		UNIQUE INDEX `name_UNIQUE` (`name` ASC)
 		)');
 
-		$this->conn->query('CREATE TABLE IF NOT EXISTS `' . $this->dbname  . '`.`' . $this->table_user_types . '` (
+		$this->conn->query('CREATE TABLE IF NOT EXISTS `' . $this->db_name  . '`.`' . $this->table_user_types . '` (
 		`id` INT NOT NULL AUTO_INCREMENT,
 		`user_id` INT NOT NULL,
 		`employee_id` INT NOT NULL,
@@ -73,16 +75,20 @@ Class DBManager {
 		INDEX `type_idx` (`employee_id` ASC),
 		CONSTRAINT `user`
 			FOREIGN KEY (`user_id`)
-			REFERENCES `' . $this->dbname  . '`.`' . $this->table_users  . '` (`id`),
+			REFERENCES `' . $this->db_name  . '`.`' . $this->table_users  . '` (`id`),
 		CONSTRAINT `type`
 			FOREIGN KEY (`employee_id`)
-			REFERENCES `' . $this->dbname  . '`.`' . $this->table_employee_types . '` (`id`)
+			REFERENCES `' . $this->db_name  . '`.`' . $this->table_employee_types . '` (`id`)
 		)');
+
+		$this->conn->select_db($this->db_name);
 	}
-	function add_user($role_id, $email, $google_sub, $firstname, $lastname, $description, $lastname_prefix = null){
-		$query = $this->conn->prepare("INSERT INTO ". $this->table_users.
-			"(role_id, email, google_sub, firstname, lastname_prefix, lastname, description) VALUES (?, ?, ?, ?, ?, ?, ?)");
-		$query->execute(array($role_id, $email, $google_sub, $firstname, $lastname_prefix, $lastname, $description));
+	
+	function add_user($role_id, $email, $google_sub, $firstname, $lastname_prefix, $lastname, $description) {
+		$query = $this->conn->prepare('INSERT INTO `' . $this->table_users . 
+			'` (`role_id`, `email`, `google_sub`, `firstname`, `lastname_prefix`, `lastname`, `description`) VALUES (?, ?, ?, ?, ?, ?, ?)');
+		$query->bind_param('issssss', $role_id, $email, $google_sub, $firstname, $lastname_prefix, $lastname, $description);
+		$query->execute();
 	}
 }
 
