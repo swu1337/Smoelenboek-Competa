@@ -13,7 +13,7 @@ Class DBManager {
 	private $conn;
 
 	public function __construct() {
-		//mysqli_report(MYSQLI_REPORT_ALL);
+		mysqli_report(MYSQLI_REPORT_ALL);
 
 		$this->db_name 					= 'smoelenboek';
 		$this->table_users 				= 'users';
@@ -86,10 +86,10 @@ Class DBManager {
 	}
 	
 	/**Add Functions**/
-	function add_user($role_id, $email, $google_sub, $firstname, $lastname_prefix, $lastname, $description) {
+	function add_user($role_id, $email, $google_sub, $firstname, $lastname_prefix, $lastname, $description, $photo_path = null) {
 		$query = $this->conn->prepare('INSERT INTO `' . $this->table_users . 
-			'` (`role_id`, `email`, `google_sub`, `firstname`, `lastname_prefix`, `lastname`, `description`) VALUES (?, ?, ?, ?, ?, ?, ?)');
-		$query->bind_param('issssss', $role_id, $email, $google_sub, $firstname, $lastname_prefix, $lastname, $description);
+			'` (`role_id`, `email`, `google_sub`, `firstname`, `lastname_prefix`, `lastname`, `description`, `photo_path`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
+		$query->bind_param('isssssss', $role_id, $email, $google_sub, $firstname, $lastname_prefix, $lastname, $description, $photo_path);
 		$query->execute();
 	}
 

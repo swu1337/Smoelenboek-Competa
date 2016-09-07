@@ -1,8 +1,8 @@
-### Example user template template
 ### Example user template
 
 # PHP Constants for Google API Login
 src/php/constants.php
+src/img/profile_pics/*
 
 # IntelliJ project files
 .idea/

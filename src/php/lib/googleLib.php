@@ -34,10 +34,9 @@ if ( isset($_GET['code']) ) {
  * Otherwise
  *	- Redirect
  **/
-if ( isset($_SESSION['access_token']) && $_SESSION['access_token']) {
+if ( isset($_SESSION["access_token"]) && $_SESSION["access_token"]  ) {
 	$client->setAccessToken($_SESSION['access_token']);
 } else {
-	require_once('util.php');
 	$auth_url = $client->createAuthUrl();
 }
 
@@ -53,6 +52,7 @@ if ( $client->getAccessToken() ) {
 		$token_data = $client->verifyIdToken()->getAttributes();
 	} else {
 		session_unset();
+		$auth_url = $client->createAuthUrl();
 	}
 }
 ?>
