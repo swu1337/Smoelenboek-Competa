@@ -13,7 +13,7 @@ Class DBManager {
 	private $conn;
 
 	public function __construct() {
-		mysqli_report(MYSQLI_REPORT_ALL);
+		mysqli_report(MYSQLI_REPORT_ERROR ^ MYSQLI_REPORT_STRICT);
 
 		$this->db_name 					= 'smoelenboek';
 		$this->table_users 				= 'users';
@@ -87,10 +87,15 @@ Class DBManager {
 	
 	/**Add Functions**/
 	function add_user($role_id, $email, $google_sub, $firstname, $lastname_prefix, $lastname, $description, $photo_path = null) {
-		$query = $this->conn->prepare('INSERT INTO `' . $this->table_users . 
-			'` (`role_id`, `email`, `google_sub`, `firstname`, `lastname_prefix`, `lastname`, `description`, `photo_path`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
-		$query->bind_param('isssssss', $role_id, $email, $google_sub, $firstname, $lastname_prefix, $lastname, $description, $photo_path);
-		$query->execute();
+		try {
+			$query = $this->conn->prepare('INSERT INTO `' . $this->table_users . 
+				'` (`role_id`, `email`, `google_sub`, `firstname`, `lastname_prefix`, `lastname`, `description`, `photo_path`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
+			$query->bind_param('isssssss', $role_id, $email, $google_sub, $firstname, $lastname_prefix, $lastname, $description, $photo_path);
+			$query->execute();
+		} catch(Exception $e) {
+			return $e->getCode();
+		}
+		return true;
 	}
 
 	/**Get Functions**/
