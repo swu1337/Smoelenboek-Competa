@@ -7,7 +7,7 @@
             $template = $user->jsonSerialize();
     ?>
             <figure class="col photo-folder">
-                <img data-currentuser='<?= $userdata ?>' class="add-person" src="img/home/add-person.png"/>
+                <img data-currentuser='<?= $userdata ?>' class="add-person" src="<?= $user->get_photo_path() ? substr($user->get_photo_path(),1) : 'img/home/default_img.jpg' ;?>"/>
                 <figcaption class="photo-description"><?= $user->get_fullname(); ?></figcaption>
             </figure>
     <?php
@@ -25,7 +25,7 @@
             ?>
         </div>
         <div class="popup-right">
-            <div class="popup-userphoto"></div>
+            <img class="popup-userphoto"></img>
         </div>
             <button class="edit-button">Edit</button>
             <button class="delete-button">Delete</button>
