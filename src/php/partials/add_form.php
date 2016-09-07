@@ -38,7 +38,10 @@
 
                     if ($uploadOk == 1) {
                         include_once('php/lib/util.php');
-                        $file_path = $target_dir . generateRandomString() . '.' . $imageFileType;
+                        
+                        do {
+                            $file_path = $target_dir . generateRandomString() . '.' . $imageFileType;
+                        } while( file_exists(ROOT_P . $file_path) );
                         if ( move_uploaded_file($_FILES["user_photo"]["tmp_name"], ROOT_P . $file_path) ) {
                             $message =  "User added";
                         } else {
