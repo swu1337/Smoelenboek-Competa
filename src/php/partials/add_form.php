@@ -10,14 +10,15 @@
     );
 
     $iter = new CachingIterator(new ArrayIterator($user_array), CachingIterator::FULL_CACHE);
+    $message = '';
 
     foreach($iter as $key => $value) {
         if($value != null || ($key == "lastname_prefix" || $key == "description" || $key == "google_sub")){
             if(!$iter-> hasNext()) {
                 $file_path = null;
-
+               
                 /**process uploaded photo**/
-                if(isset($_FILES["user_photo"])) {
+                if( (isset($_FILES["user_photo"]["size"]) && $_FILES["user_photo"]["size"] > 0) ) {
                     $target_dir = "/img/profile_pics/";
                     $uploadOk = 1;
                     $imageFileType = pathinfo( ROOT_P . $target_dir . basename($_FILES["user_photo"]["name"]) , PATHINFO_EXTENSION);
@@ -43,15 +44,22 @@
                             $file_path = $target_dir . generateRandomString() . '.' . $imageFileType;
                         } while( file_exists(ROOT_P . $file_path) );
                         if ( move_uploaded_file($_FILES["user_photo"]["tmp_name"], ROOT_P . $file_path) ) {
-                            $message =  "User added";
                         } else {
                             $message =  "There was an error adding the profile picture please add this manually.";
                         }
                     }
+                    unset($_FILES['user_photo']);
                 }
 
-                $db->add_user($iter["role_id"], $iter["email"], $iter["google_sub"],
+                $result = $db->add_user($iter["role_id"], $iter["email"], $iter["google_sub"],
                     $iter["firstname"], $iter["lastname_prefix"], $iter["lastname"], $iter["description"], $file_path);
+
+                if( $result === true ) {
+                    $message = "User added";
+                }               
+                else if($result == 1062) {
+                    $message = 'This user already exists!';
+                }
             }
         }
         else{
@@ -128,7 +136,7 @@
                 <input class="form-file" id="user_photo" type="file" name="user_photo" />
                 <label class="form-label" for="user_photo">Choose a file ...</label>
             </div>
-            <?= ( isset($message) ) ? "<p>$message</p>" : '' ?>
+            <?= ( $message != '' ) ? "<p>$message</p>" : '' ?>
     </form>
     <div class="col col_half add-form">
         <div class="photo-viewer">
