@@ -3,7 +3,7 @@ module.exports = {
         separator: ';'
     },
     dist: {
-        src: ['src/js/**/*.js'],
+        src: ['src/js/**/*.js', 'grunt/*.js'],
         dest: 'build/js/app.min.js'
     }
 };

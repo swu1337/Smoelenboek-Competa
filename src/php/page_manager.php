@@ -5,9 +5,6 @@ if( isset($_SESSION["access_token"]) && $_SESSION["access_token"] ){
 		case "add":
 			require_once("pages/add.php");
 			break;
-		case "delete":
-			require_once("pages/delete.php");
-			break;
 		default:
 			require_once("pages/default.php");
 			break;

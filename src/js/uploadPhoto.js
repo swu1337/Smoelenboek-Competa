@@ -18,7 +18,7 @@
         } else { preview.style.backgroundImage= "none" }
 
         if(photoName) {
-            label.innerHTML = photoName;
+            labelValue = photoName;
         }
     });
   }

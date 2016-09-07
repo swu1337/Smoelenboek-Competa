@@ -1,67 +1,53 @@
-.delete_popup{
+.popup{
   position: fixed;
   left: 44%;
   background-color: $white;
-  margin: 3% auto 0 auto;
   padding: 10px;
   border: 2px solid $dark-blue;
   width: 38%;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  text-align: center;
+
+  &-userphoto{
+    width: 168px;
+    height: 168px;
+    background-color: green;
+  }
+
+  &.hidden{
+    display: none;
+  }
+
+  &-alginment{
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  &-left{
+    width: 60%;
+    float: left;
+    @media screen and (max-width: 664px){
+      margin-left: 0;
+    }
+  }
+
+  &-right{
+    width: 40%;
+    float: left;
+    padding: 0 28px 5px 0;
+  }
 }
 
 .close{
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: $pure-black;
   cursor: pointer;
-  float: right;
-}
-
-.confirm_delete{
-    margin:{
-      bottom: 10px;
-    }
-
-    background-color:$light-grey;
-    color: $black;
-    font-size: 1.1em;
-    padding: 10px 20px 10px 20px;
-    border: solid #1e333e 2px;
-    text-decoration: none;
-
-  &:hover {
-    background: $green;
-    background-image: -webkit-linear-gradient(top, $green, $green);
-    background-image: -moz-linear-gradient(top, $green, $green);
-    background-image: -ms-linear-gradient(top, $green, $green);
-    background-image: -o-linear-gradient(top, $green, $green);
-    background-image: linear-gradient(to bottom, $green, $green);
-    text-decoration: none;
+  height: 20px;
+  width: 20px;
+  &:after{
+    content:'X';
+    display: block;
   }
 }
 
-.decline_delete{
-  @media screen and (max-width: 664px){
-      margin-left: 0;
-    }
-
-  margin:{
-    bottom: 10px;
-    left: 10%;
-  }
-
-  background-color: $light-grey;
-  color: black;
-  font-size: 1.1em;
-  padding: 10px 22px 10px 22px;
-  border: solid #1e333e 2px;
-  text-decoration: none;
-
-  &:hover {
-    background: $competa-red;
-    background-image: -webkit-linear-gradient(top, $competa-red, $competa-red);
-    background-image: -moz-linear-gradient(top, $competa-red, $competa-red);
-    background-image: -ms-linear-gradient(top, $competa-red, $competa-red);
-    background-image: -o-linear-gradient(top, $competa-red, $competa-red);
-    background-image: linear-gradient(to bottom, $competa-red, $competa-red);
-    text-decoration: none;
-  }
-}

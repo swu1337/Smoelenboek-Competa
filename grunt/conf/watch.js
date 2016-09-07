@@ -8,7 +8,7 @@ module.exports = {
     },
     js: {
         files: ['src/js/**/*.js'],
-        tasks: ['jshint','concat','uglify',]
+        tasks: ['jshint','concat','uglify']
     },
     php: {
         files: ['src/php/**/*.php'],
