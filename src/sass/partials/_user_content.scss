@@ -1,11 +1,14 @@
 .add-person {
-  width: 100%;
-  margin-top: 8px;
+  display: block;
+  width: 118px;
+  height: 118px;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .photo {
   &-folder {
-    width: 13%;
+    width: 123px;
     padding: 0;
     margin-left: 25px;
     min-height: 205px;
@@ -17,7 +20,7 @@
 @media screen and (max-width: 950px) {
   .photo {
     &-folder {
-      width: 18%;
+      width: 150px;
       padding: 0;
       margin-left: 25px;
       min-height: 210px;
@@ -27,10 +30,39 @@
 @media screen and (max-width: 620px) {
   .photo {
     &-folder {
-      width: 26%;
+      width: 180px;
       padding: 0;
       margin-left: 25px;
       min-height: 210px;
     }
   }
+  .add-person {
+    display: block;
+    margin: 0 auto;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
 }
+  @media screen and (max-width: 550px) {
+    .photo {
+      &-folder {
+        width: 220px;
+        padding: 0;
+        margin-left: 25px;
+        min-height: 210px;
+      }
+    }
+
+    .add-person {
+      display: block;
+      margin: 0 auto;
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+  }
+

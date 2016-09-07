@@ -7,7 +7,7 @@
       var labelValue = label.innerHTML;
 
       photo.addEventListener('change', function(e) {
-        var photoName =  "Choose a file ...";
+        var photoName =  "Choose a file...";
         if(this.files && this.files.length === 1) {
           photoName = e.target.value.split('\\').pop();
 
@@ -18,7 +18,8 @@
         } else { preview.style.backgroundImage= "none" }
 
         if(photoName) {
-            labelValue = photoName;
+            label.innerHTML = photoName;
+
         }
     });
   }

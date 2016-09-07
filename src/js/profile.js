@@ -1,6 +1,5 @@
 (function() {
     var popup = document.querySelector('.popup'),
-        image = document.querySelectorAll('.photo-folder img'),
         close = document.querySelector('.popup .close'),
         content = document.querySelector('.content');
 
@@ -20,7 +19,8 @@
                 if(popup.classList.contains('hidden')) {
                     showPopup();
                     var currentUserData = JSON.parse(e.target.getAttribute('data-currentuser'));
-
+                    var popup_photo = document.querySelector('.popup-userphoto');
+                    popup_photo.src = e.target.src;
                     for (var key in currentUserData) {
                         if (currentUserData.hasOwnProperty(key)) {
                         var classes = '.popup-alginment__' + key + ' .inject';
@@ -30,6 +30,10 @@
                     closePopup();
                 }
             }
+
+
+
+
         }, false);
     }
 
