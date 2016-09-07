@@ -27,5 +27,11 @@
         <div class="popup-right">
             <div class="popup-userphoto"></div>
         </div>
+            <button class="edit-button">Edit</button>
+            <button class="delete-button">Delete</button>
+            <button class="sure">Are you sure?</button>
+
+
+
     </div>
 </div>

@@ -13,6 +13,53 @@
     background-color: green;
   }
 
+  .delete-button{
+      margin-bottom: 10px;
+      background: $competa-red;
+      color: $white;
+      font-size: 1.1em;
+      padding: 10px 20px 10px 20px;
+      text-decoration: none;
+  }
+
+  .delete-button:hover {
+    @include transition(ease, .2s);
+    @include box-shadow(0, 0, $pure-black, 20px, 0, inset);
+  }
+
+  .sure{
+    display: none;
+    margin-left: -5px;
+    margin-bottom: 10px;
+    opacity: 0.6;
+    background: $competa-red;
+    color: $white;
+    font-size: 1.1em;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+  }
+
+  .sure:hover {
+    opacity: 1;
+    background: $competa-red;
+  }
+
+
+  .edit-button{
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background: #dedede;
+    color: black;
+    font-size: 1.1em;
+    padding: 10px 20px 10px 20px;
+    border: solid #1e333e 1px;
+    text-decoration: none;
+  }
+
+  .edit-button:hover {
+
+  }
+
   &.hidden{
     display: none;
   }
@@ -49,5 +96,6 @@
     content:'X';
     display: block;
   }
+
 }
 
