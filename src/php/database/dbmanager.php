@@ -84,11 +84,11 @@ Class DBManager {
 
 		$this->conn->select_db($this->db_name);
 	}
-	
+
 	/**Add Functions**/
-	function add_user($role_id, $email, $google_sub, $firstname, $lastname_prefix, $lastname, $description, $photo_path = null) {
+	public function add_user($role_id, $email, $google_sub, $firstname, $lastname_prefix, $lastname, $description, $photo_path = null) {
 		try {
-			$query = $this->conn->prepare('INSERT INTO `' . $this->table_users . 
+			$query = $this->conn->prepare('INSERT INTO `' . $this->table_users .
 				'` (`role_id`, `email`, `google_sub`, `firstname`, `lastname_prefix`, `lastname`, `description`, `photo_path`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
 			$query->bind_param('isssssss', $role_id, $email, $google_sub, $firstname, $lastname_prefix, $lastname, $description, $photo_path);
 			$query->execute();
@@ -98,17 +98,29 @@ Class DBManager {
 		return true;
 	}
 
+	public function delete_user($id) {
+		try {
+			$query = $this->conn->prepare("DELETE FROM $this->table_users WHERE id = ?");
+			$query->bind_param('s', $id);
+			if($query->execute()) {
+				echo 'User successfully deleted!';
+			}
+		}
+		catch(Exception $e) {
+			return $e->getCode();
+		}
+	}
+
 	/**Get Functions**/
-	public function get_users() {	
+	public function get_users() {
 		$result = $this->conn->query( 'SELECT * FROM '. $this->table_users);
 		$users = array();
 
 		while ( $row = $result->fetch_assoc() ) {
-			array_push($users, new User( $row['id'], $row['role_id'], $row['email'], $row['google_sub'], 
+			array_push($users, new User( $row['id'], $row['role_id'], $row['email'], $row['google_sub'],
 					$row['firstname'], $row['lastname_prefix'], $row['lastname'], $row['photo_path'], $row['description']) );
 		}
 
 		return $users;
 	}
 }
-
