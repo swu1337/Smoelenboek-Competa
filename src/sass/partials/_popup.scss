@@ -1,10 +1,10 @@
 .popup {
   position: absolute;
-  left: 15%;
+  left: 20%;
   background-color: $white;
   padding: 10px;
   border: 2px solid $dark-blue;
-  width: 500px;
+  width: 50%;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 
   &-userphoto{
@@ -19,11 +19,6 @@
       font-size: 1.1em;
       padding: 10px 20px 10px 20px;
       text-decoration: none;
-  }
-
-  .delete-button:hover {
-    @include transition(ease, .2s);
-    @include box-shadow(0, 0, $pure-black, 20px, 0, inset);
   }
 
   .sure {
