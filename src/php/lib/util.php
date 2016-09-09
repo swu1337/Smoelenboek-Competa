@@ -9,3 +9,7 @@ function generateRandomString($length = 20) {
     }
     return $randomString;
 }
+
+function startsWith($haystack, $needle) {
+    return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== false;
+}

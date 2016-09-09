@@ -26,7 +26,12 @@
                     for (var key in currentUserData) {
                         if (currentUserData.hasOwnProperty(key)) {
                         var classes = '.popup-alginment__' + key + ' .inject';
-                        document.querySelector(classes).innerHTML = ' ' + currentUserData[key];
+						if( currentUserData[key] === null ) {
+							document.querySelector(classes).innerHTML = ' -';
+						} else {
+							document.querySelector(classes).innerHTML = ' ' + currentUserData[key];
+						}
+                        
                         }
                     }
                     closePopup();
