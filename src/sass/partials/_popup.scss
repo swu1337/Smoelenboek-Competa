@@ -1,4 +1,4 @@
-.popup{
+.popup {
   position: absolute;
   left: 15%;
   background-color: $white;
@@ -26,8 +26,7 @@
     @include box-shadow(0, 0, $pure-black, 20px, 0, inset);
   }
 
-  .sure{
-    display: none;
+  .sure {
     margin-left: -5px;
     margin-bottom: 10px;
     opacity: 0.6;
@@ -95,6 +94,10 @@
     content:'X';
     display: block;
   }
-
 }
 
+.btn {
+    &-hidden {
+        display: none;
+    }
+}

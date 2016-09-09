@@ -3,19 +3,18 @@
 		sureBtn = document.querySelector('.sure');
 
 	function showButton() {
-		var isClicked = true;
 		btn.addEventListener('click', function() {
-			if (isClicked) {
-				sureBtn.style.display = 'inline-block';
-				isClicked = false;
+			if(sureBtn.classList.contains('btn-hidden')) {
+				sureBtn.classList.remove('btn-hidden');
 			}
 			else {
-				console.log("hh");
-				sureBtn.style.display = 'none';
-				isClicked = true;
+				sureBtn.classList.add('btn-hidden');
 			}
 		}, false);
 	}
 
-	showButton();
+	if(btn) {
+		sureBtn.classList.add('btn-hidden');
+		showButton();
+	}
 })();

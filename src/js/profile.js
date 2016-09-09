@@ -1,7 +1,8 @@
 (function() {
     var popup = document.querySelector('.popup'),
         close = document.querySelector('.popup .close'),
-        content = document.querySelector('.content');
+        content = document.querySelector('.content'),
+        sureBtn = document.querySelector('.sure');
 
     function showPopup() {
         popup.classList.remove('hidden');
@@ -9,6 +10,7 @@
 
     function closePopup() {
         close.addEventListener('click', function() {
+            sureBtn.classList.add('btn-hidden');
             popup.classList.add('hidden');
         }, false);
     }
