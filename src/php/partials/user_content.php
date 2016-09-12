@@ -1,18 +1,19 @@
-<div class="col content">
+<div class="profile-container">
     <?php
-        $users = $db->get_users();
-        $template = array();
-        foreach($users as $user){
-            $userdata = json_encode( $user->jsonSerialize(), JSON_NUMERIC_CHECK);
-            $template = $user->jsonSerialize();
+	$users = $db->get_users();
+	$template = array();
+	foreach($users as $user){
+		$userdata = json_encode( $user->jsonSerialize(), JSON_NUMERIC_CHECK);
+		$template = $user->jsonSerialize();
     ?>
-            <figure class="col photo-folder">
-                <img data-currentuser='<?= $userdata ?>' class="add-person" src="<?= $user->get_photo_path() ? $user->get_photo_path() : 'img/home/default_img.jpg' ;?>"/>
-                <figcaption class="photo-description"><?= $user->get_fullname(); ?></figcaption>
-            </figure>
+		<div class="user-item">
+			<img data-currentuser='<?= $userdata ?>' class="user-photo" src="<?= $user->get_photo_path() ? $user->get_photo_path() : 'img/home/default_img.jpg' ;?>"/>
+			<p class="user-name"><?= $user->get_fullname(); ?></p>
+		</div>
     <?php
     };
     ?>
+
     <div class="popup">
         <span class="close"></span>
         <div class="popup-left">
@@ -30,8 +31,6 @@
             <button class="edit-button">Edit</button>
             <button class="delete-button">Delete</button>
             <button class="sure">Are you sure?</button>
-
-
-
     </div>
 </div>
+

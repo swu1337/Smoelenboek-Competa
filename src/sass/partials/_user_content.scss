@@ -1,66 +1,37 @@
-.add-person {
-  display: block;
-  width: 118px;
-  height: 118px;
-  overflow: hidden;
+.profile-container {
+	width: 70vw;	
+	float: right;
+	background-color: white;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	.user-item {
+	width: 165px;
+	margin: 20px;
+	background-color: #E3E3E3;
+
+		.user-photo {
+			width: 145px;
+			margin: auto;
+			display: block;
+			margin: 10px auto;
+		}
+
+		.user-name {
+			font-size: 14px;
+			text-align: center;
+		}
+	}
+
 }
 
-.photo {
-  &-folder {
-    width: 123px;
-    padding: 0;
-    margin-left: 25px;
-    min-height: 205px;
-  }
-      &-description {
-        text-align: center;
-      }
-    }
-@media screen and (max-width: 950px) {
-  .photo {
-    &-folder {
-      width: 150px;
-      padding: 0;
-      margin-left: 25px;
-      min-height: 210px;
-    }
-  }
+@media screen and (max-width: 770px) {
+	.profile-container {
+		width: 100vw;
+	}
 }
-@media screen and (max-width: 620px) {
-  .photo {
-    &-folder {
-      width: 180px;
-      padding: 0;
-      margin-left: 25px;
-      min-height: 210px;
-    }
-  }
-  .add-person {
-    display: block;
-    margin: 0 auto;
-    width: 160px;
-    height: 160px;
-    overflow: hidden;
-  }
-}
-  @media screen and (max-width: 550px) {
-    .photo {
-      &-folder {
-        width: 220px;
-        padding: 0;
-        margin-left: 25px;
-        min-height: 210px;
-      }
-    }
 
-    .add-person {
-      display: block;
-      margin: 0 auto;
-      width: 190px;
-      height: 190px;
-      border-radius: 50%;
-      overflow: hidden;
-    }
 
-  }
 

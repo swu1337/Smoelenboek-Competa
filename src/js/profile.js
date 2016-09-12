@@ -1,7 +1,7 @@
 (function() {
     var popup = document.querySelector('.popup'),
         close = document.querySelector('.popup .close'),
-        content = document.querySelector('.content'),
+        content = document.querySelector('.profile-container'),
         sureBtn = document.querySelector('.sure');
 
     function showPopup() {
@@ -17,7 +17,7 @@
 
     function manipulateElem () {
         content.addEventListener('click', function(e) {
-            if(e.target.classList.contains('add-person')) {
+            if(e.target.classList.contains('user-photo')) {
                 if(popup.classList.contains('hidden')) {
                     showPopup();
                     var currentUserData = JSON.parse(e.target.getAttribute('data-currentuser'));

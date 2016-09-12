@@ -87,6 +87,7 @@ if ( $client->getAccessToken() ) {
 			}
 
 			if($result) {
+				include_once('php/lib/util.php');
 				if( (startsWith( $result->get_photo_path(), 'http' ) || $result->get_photo_path() == null) 
 						&& $result->get_photo_path() != $_SESSION['user_info']['picture'] ) {
 							$result->set_photo_path( $_SESSION['user_info']['picture'] );	
