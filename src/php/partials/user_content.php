@@ -19,9 +19,11 @@
         <div class="popup-left">
             <?php
               foreach($template as $key => $value) {
+                  if($key != "id") {
             ?>
             <span class="popup-alginment popup-alginment__<?= $key;?>"><?= ucfirst($key);?>:<span class="inject"></span></span>
             <?php
+                  }
               };
             ?>
         </div>
@@ -31,6 +33,7 @@
             <button class="edit-button">Edit</button>
             <button class="delete-button">Delete</button>
             <button class="sure">Are you sure?</button>
+            <div class="error-message"></div>
     </div>
 </div>
 

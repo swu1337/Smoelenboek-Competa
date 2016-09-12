@@ -62,8 +62,11 @@
   }
 
   &-left{
-    width: 60%;
+    width: 58%;
+    margin-right: 2%;
     float: left;
+    word-break: break-all;
+    
     @media screen and (max-width: 664px){
       margin-left: 0;
     }

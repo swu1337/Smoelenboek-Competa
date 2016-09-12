@@ -1,5 +1,5 @@
 <?php
-Class User implements JsonSerializable{
+Class User implements JsonSerializable {
 
     private $id;
     private $role_id;
@@ -96,9 +96,10 @@ Class User implements JsonSerializable{
     }
 
 	public function jsonSerialize() {
+        $array['id'] = $this->id;
 		$array['fullname'] = $this->get_fullname();
-    $array['email'] = $this->email;
-    $array['description'] = $this->description;
+        $array['email'] = $this->email;
+        $array['description'] = $this->description;
 		return $array;
 	}
 }
