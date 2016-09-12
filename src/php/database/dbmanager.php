@@ -164,7 +164,4 @@ Class DBManager {
 
 		return false;
 	}
-
-
 }
-
