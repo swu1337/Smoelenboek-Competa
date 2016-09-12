@@ -4,13 +4,7 @@
     <nav class="navigation-container">
         <ul class="navigation-list">
             <li class="navigation-item">
-                <a class="navigation-item-link">Interns</a>
-            </li>
-            <li class="navigation-item">
                 <a href="?p=" class="navigation-item-link">Employees</a>
-            </li>
-            <li class="navigation-item">
-                <a class="navigation-item-link">Trainees</a>
             </li>
             <!--Add if statement for admin-->
             <li class="navigation-item-green">
