@@ -1,6 +1,6 @@
 <div class="col col_quarter sidebar" >
     <img class="competa_logo" src="img/home/competa_logo.svg"/>
-    <p class="welcome_message">Welcome, name</p>
+    <p class="welcome_message">Welcome, <?= $_SESSION['user_info']['name'] ?></p>
     <nav class="navigation-container">
         <ul class="navigation-list">
             <li class="navigation-item">
