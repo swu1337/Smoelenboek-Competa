@@ -125,7 +125,7 @@ Class DBManager {
 	}
 
 	public function update_user($user) {
-		$query = $this->conn->prepare('UPDATE ' . $this->table_users . ' SET `role_id`=?, `email`=?, `google_sub`=?, 
+		$query = $this->conn->prepare('UPDATE ' . $this->table_users . ' SET `role_id`=?, `email`=?, `google_sub`=?,
 			`firstname`=?, `lastname_prefix`=?, `lastname`=?, `photo_path`=?, `description`=? WHERE `id`=?');
 
 		$query->bind_param('isssssssi', $user->get_role_id(), $user->get_email(), $user->get_google_sub(),
@@ -142,14 +142,14 @@ Class DBManager {
 		$row = $result->fetch_assoc();
 
 		if ( $row != null ) {
-			return new User( $row['id'], $row['role_id'], $row['email'], $row['google_sub'], 
+			return new User( $row['id'], $row['role_id'], $row['email'], $row['google_sub'],
 					$row['firstname'], $row['lastname_prefix'], $row['lastname'], $row['photo_path'], $row['description']);
 		}
 
 		return false;
 	}
 
-	public function get_user_by_email($email) {	
+	public function get_user_by_email($email) {
 		$query = $this->conn->prepare( 'SELECT * FROM '. $this->table_users . ' WHERE `google_sub` IS NULL AND `email`=?' );
 		$query->bind_param('s', $email);
 		$query->execute();
@@ -158,7 +158,7 @@ Class DBManager {
 		$row = $result->fetch_assoc();
 
 		if ( $row != null ) {
-			return new User( $row['id'], $row['role_id'], $row['email'], $row['google_sub'], 
+			return new User( $row['id'], $row['role_id'], $row['email'], $row['google_sub'],
 					$row['firstname'], $row['lastname_prefix'], $row['lastname'], $row['photo_path'], $row['description']);
 		}
 
@@ -167,3 +167,4 @@ Class DBManager {
 
 
 }
+

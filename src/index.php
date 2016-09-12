@@ -20,7 +20,7 @@ include_once("php/lib/googleLib.php");
 define('ROOT_P', str_replace("\\", "/", dirname (__FILE__)));
 
 include_once('php/page_manager.php');
-include_once('delete_user.php');
+
 ?>
 
 <script type="text/javascript" src="../build/js/app.min.js"></script>
