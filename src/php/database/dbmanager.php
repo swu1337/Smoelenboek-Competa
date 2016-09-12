@@ -100,7 +100,7 @@ Class DBManager {
 
 	public function delete_user($id) {
 		try {
-			$query = $this->conn->prepare( 'DELETE FROM' . $this->table_users . 'WHERE id = ?' );
+			$query = $this->conn->prepare( 'DELETE FROM ' . $this->table_users . ' WHERE id=?' );
 			$query->bind_param('s', $id);
 			if($query->execute()) {
 				echo 'User successfully deleted!';

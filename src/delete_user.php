@@ -6,4 +6,4 @@
    if(!empty($_POST['id'])) {
        $db->delete_user($_POST['id']);
    }
-?>
+
