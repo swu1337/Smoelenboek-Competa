@@ -1,9 +1,11 @@
+(function() {
     var popup = document.querySelector('.popup'),
         close = document.querySelector('.popup .close'),
         content = document.querySelector('.content'),
         sureBtn = document.querySelector('.sure'),
-        xhttp = new XMLHttpRequest(),
-        currentUserData;
+        errorMsg = document.querySelector('.error-message'),
+        currentUserData = {},
+        xhttp = new XMLHttpRequest();
 
     function showPopup() {
         popup.classList.remove('hidden');
@@ -18,10 +20,9 @@
 
     function manipulateElem () {
         content.addEventListener('click', function(e) {
-            currentUserData = JSON.parse(e.target.getAttribute('data-currentuser'));
-            console.log(currentUserData);
-
             if(e.target.classList.contains('add-person')) {
+                currentUserData = JSON.parse(e.target.getAttribute('data-currentuser'));
+                
                 if(popup.classList.contains('hidden')) {
                     showPopup();
                     var popup_photo = document.querySelector('.popup-userphoto');
@@ -32,7 +33,7 @@
                                 var classes = '.popup-alginment__' + key + ' .inject';
                                 document.querySelector(classes).innerHTML = ' ' + currentUserData[key];
 
-                                if(currentUserData[key] === null) {
+                                if(currentUserData[key] === null || currentUserData[key] === "") {
                                     document.querySelector(classes).innerHTML = ' -';
                                 } else {
                                     document.querySelector(classes).innerHTML = ' ' + currentUserData[key];
@@ -48,18 +49,17 @@
 
     function deleteUser() {
         sureBtn.addEventListener("click", function() {
-
             xhttp.onreadystatechange = function() {
                 if (this.readyState === 4 && this.status === 200) {
-                    console.log('Succeeded!');
+                    location.reload();
                 } else {
-                    console.log('Something went wrong');
+                    errorMsg.innerHTML = "Something went wrong";
                 }
             };
-            console.log(currentUserData);
+
             xhttp.open("POST", "delete_user.php", true);
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xhttp.send("id=11");
+            xhttp.send("id=" + currentUserData.id);
         }, false);
     }
 
@@ -72,3 +72,4 @@
     if(popup) {
         initPopup();
     }
+})();
