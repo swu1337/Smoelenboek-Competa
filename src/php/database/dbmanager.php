@@ -13,7 +13,7 @@ Class DBManager {
 	private $conn;
 
 	public function __construct() {
-		mysqli_report(MYSQLI_REPORT_ERROR ^ MYSQLI_REPORT_STRICT);
+		mysqli_report(MYSQLI_REPORT_ERROR);
 
 		$this->db_name 					= 'smoelenboek';
 		$this->table_users 				= 'users';
@@ -100,7 +100,7 @@ Class DBManager {
 
 	public function delete_user($id) {
 		try {
-			$query = $this->conn->prepare("DELETE FROM $this->table_users WHERE id = ?");
+			$query = $this->conn->prepare( 'DELETE FROM' . $this->table_users . 'WHERE id = ?' );
 			$query->bind_param('s', $id);
 			if($query->execute()) {
 				echo 'User successfully deleted!';
@@ -123,4 +123,47 @@ Class DBManager {
 
 		return $users;
 	}
+
+	public function update_user($user) {
+		$query = $this->conn->prepare('UPDATE ' . $this->table_users . ' SET `role_id`=?, `email`=?, `google_sub`=?, 
+			`firstname`=?, `lastname_prefix`=?, `lastname`=?, `photo_path`=?, `description`=? WHERE `id`=?');
+
+		$query->bind_param('isssssssi', $user->get_role_id(), $user->get_email(), $user->get_google_sub(),
+			 $user->get_firstname(), $user->get_lastname_prefix(), $user->get_lastname(), $user->get_photo_path(), $user->get_description(), $user->get_id() );
+		$query->execute();
+	}
+
+	public function get_user_by_google_id($sub) {
+		$query = $this->conn->prepare( 'SELECT * FROM '. $this->table_users . ' WHERE `google_sub`=?' );
+		$query->bind_param('s', $sub);
+		$query->execute();
+
+		$result = $query->get_result();
+		$row = $result->fetch_assoc();
+
+		if ( $row != null ) {
+			return new User( $row['id'], $row['role_id'], $row['email'], $row['google_sub'], 
+					$row['firstname'], $row['lastname_prefix'], $row['lastname'], $row['photo_path'], $row['description']);
+		}
+
+		return false;
+	}
+
+	public function get_user_by_email($email) {	
+		$query = $this->conn->prepare( 'SELECT * FROM '. $this->table_users . ' WHERE `google_sub` IS NULL AND `email`=?' );
+		$query->bind_param('s', $email);
+		$query->execute();
+
+		$result = $query->get_result();
+		$row = $result->fetch_assoc();
+
+		if ( $row != null ) {
+			return new User( $row['id'], $row['role_id'], $row['email'], $row['google_sub'], 
+					$row['firstname'], $row['lastname_prefix'], $row['lastname'], $row['photo_path'], $row['description']);
+		}
+
+		return false;
+	}
+
+
 }

@@ -13,14 +13,14 @@ session_start();
 
 require_once('php/constants.php');
 require_once(GOOGLE_API);
-include_once("php/lib/googleLib.php");
-
 require_once('php/database/dbmanager.php');
-define('ROOT_P', str_replace("\\", "/", dirname (__FILE__)));
 $db = new DBManager();
 
-include_once('php/page_manager.php');
+include_once("php/lib/googleLib.php");
+define('ROOT_P', str_replace("\\", "/", dirname (__FILE__)));
 
+include_once('php/page_manager.php');
+include_once('delete_user.php');
 ?>
 
 <script type="text/javascript" src="../build/js/app.min.js"></script>

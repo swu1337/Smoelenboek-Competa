@@ -1,9 +1,9 @@
-(function() {
     var popup = document.querySelector('.popup'),
         close = document.querySelector('.popup .close'),
         content = document.querySelector('.content'),
         sureBtn = document.querySelector('.sure'),
-        xhttp = new XMLHttpRequest();
+        xhttp = new XMLHttpRequest(),
+        currentUserData;
 
     function showPopup() {
         popup.classList.remove('hidden');
@@ -18,21 +18,10 @@
 
     function manipulateElem () {
         content.addEventListener('click', function(e) {
-            var currentUserData = JSON.parse(e.target.getAttribute('data-currentuser'));
+            currentUserData = JSON.parse(e.target.getAttribute('data-currentuser'));
+            console.log(currentUserData);
 
             if(e.target.classList.contains('add-person')) {
-
-                xhttp.onreadystatechange = function() {
-                    if (this.readyState === 4 && this.status === 200) {
-                        console.log('Deleted');
-                    } else {
-                        console.log('Something went wrong');
-                    }
-                };
-
-                xhttp.open("GET", "delete_user.php?id=" + currentUserData.id, true);
-                xhttp.send();
-
                 if(popup.classList.contains('hidden')) {
                     showPopup();
                     var popup_photo = document.querySelector('.popup-userphoto');
@@ -42,6 +31,12 @@
                             if(key !== "id") {
                                 var classes = '.popup-alginment__' + key + ' .inject';
                                 document.querySelector(classes).innerHTML = ' ' + currentUserData[key];
+
+                                if(currentUserData[key] === null) {
+                                    document.querySelector(classes).innerHTML = ' -';
+                                } else {
+                                    document.querySelector(classes).innerHTML = ' ' + currentUserData[key];
+                                }
                             }
                         }
                     }
@@ -51,12 +46,29 @@
         }, false);
     }
 
+    function deleteUser() {
+        sureBtn.addEventListener("click", function() {
+            
+            xhttp.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    console.log('Succeeded!');
+                } else {
+                    console.log('Something went wrong');
+                }
+            };
+            console.log(currentUserData);
+            xhttp.open("POST", "delete_user.php", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("id=11");
+        }, false);
+    }
+
     function initPopup() {
         popup.classList.add('hidden');
         manipulateElem();
+        deleteUser();
     }
 
     if(popup) {
         initPopup();
     }
-})();

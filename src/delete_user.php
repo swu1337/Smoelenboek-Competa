@@ -1,12 +1,9 @@
 <?php
-    require_once('dbmanager.php');
-    $db = new DBManager();
+   require_once('php/database/dbmanager.php');
 
-    if(!empty($_GET['id'])) {
-        //$db->delete_user($_GET['id']);
-        echo 'asd';
-    }
-    else{
-        echo 'hi';
-    }
+   $db = new DBManager();
+
+   if(!empty($_POST['id'])) {
+       $db->delete_user($_POST['id']);
+   }
 ?>

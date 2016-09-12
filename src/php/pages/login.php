@@ -18,5 +18,6 @@
 				<p class="btn-text">Sign in with Google</p>
 			</div>
 		</a>
+		<?= ( isset($_GET['error']) ) ? "<p class='error'> Please log in with a competa.com e-mail or ask the administrator to register your account manually</p>" : '' ?> 
 	</div>
 </div>

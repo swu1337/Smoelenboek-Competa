@@ -19,9 +19,9 @@
                
                 /**process uploaded photo**/
                 if( (isset($_FILES["user_photo"]["size"]) && $_FILES["user_photo"]["size"] > 0) ) {
-                    $target_dir = "/img/profile_pics/";
+                    $target_dir = "img/profile_pics/";
                     $uploadOk = 1;
-                    $imageFileType = pathinfo( ROOT_P . $target_dir . basename($_FILES["user_photo"]["name"]) , PATHINFO_EXTENSION);
+                    $imageFileType = pathinfo( ROOT_P . '/' . $target_dir . basename($_FILES["user_photo"]["name"]) , PATHINFO_EXTENSION);
 
                     if(isset($_POST["submit"])) {
                         if( !getimagesize($_FILES["user_photo"]["tmp_name"]) ) {
@@ -43,7 +43,7 @@
                         do {
                             $file_path = $target_dir . generateRandomString() . '.' . $imageFileType;
                         } while( file_exists(ROOT_P . $file_path) );
-                        if ( move_uploaded_file($_FILES["user_photo"]["tmp_name"], ROOT_P . $file_path) ) {
+                        if ( move_uploaded_file($_FILES["user_photo"]["tmp_name"], ROOT_P . '/' . $file_path) ) {
                         } else {
                             $message =  "There was an error adding the profile picture please add this manually.";
                         }
