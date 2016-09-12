@@ -18,13 +18,28 @@
         <div class="popup-left">
             <?php
               foreach($template as $key => $value) {
-                  if($key != "id") {
+                  if($key == "name" || $key == "email" || $key == "description") {
             ?>
             <span class="popup-alginment popup-alginment__<?= $key;?>"><?= ucfirst($key);?>:<span class="inject"></span></span>
             <?php
                   }
               };
             ?>
+            <div class="update-section">
+                <?php
+                  foreach($template as $key => $value) {
+                      if($key !== 'name' &&
+                         $key !== 'photo_path' &&
+                         $key !== 'id' &&
+                         $key !== 'role_id' &&
+                         $key !== 'google_sub') {
+                ?>
+                <span class="popup-alginment popup-alginment__<?= $key;?>"><?= ucfirst($key);?>:<span class="inject"></span></span>
+                <?php
+                      }
+                  };
+                ?>
+            </div>
         </div>
         <div class="popup-right">
             <img class="popup-userphoto"></img>

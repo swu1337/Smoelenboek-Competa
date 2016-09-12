@@ -96,10 +96,17 @@ Class User implements JsonSerializable {
     }
 
 	public function jsonSerialize() {
+		$array['name'] = $this->get_fullname();
         $array['id'] = $this->id;
-		$array['fullname'] = $this->get_fullname();
+        $array['role_id'] = $this->role_id;
         $array['email'] = $this->email;
+        $array['google_sub'] = $this->google_sub;
+        $array['firstname'] = $this->firstname;
+        $array['lastname_prefix'] = $this->lastname_prefix;
+        $array['lastname'] = $this->lastname;
+        $array['photo_path'] = $this->photo_path;
         $array['description'] = $this->description;
+
 		return $array;
 	}
 }

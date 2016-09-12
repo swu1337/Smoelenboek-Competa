@@ -22,14 +22,14 @@
         content.addEventListener('click', function(e) {
             if(e.target.classList.contains('add-person')) {
                 currentUserData = JSON.parse(e.target.getAttribute('data-currentuser'));
-                
+
                 if(popup.classList.contains('hidden')) {
                     showPopup();
                     var popup_photo = document.querySelector('.popup-userphoto');
                     popup_photo.src = e.target.src;
                     for (var key in currentUserData) {
                         if (currentUserData.hasOwnProperty(key)) {
-                            if(key !== "id") {
+                            if(key === "name" || key === "email" || key === "description") {
                                 var classes = '.popup-alginment__' + key + ' .inject';
                                 document.querySelector(classes).innerHTML = ' ' + currentUserData[key];
 
